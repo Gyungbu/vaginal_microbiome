@@ -1,0 +1,62 @@
+[
+    {
+        "phenotype": "pelvic inflammatory diseases",
+        "num_sample": 56,
+        "mean_grs": 0.005952380952380952,
+        "std_grs": 0.04615443037874569
+    },
+    {
+        "phenotype": "endometritis",
+        "num_sample": 56,
+        "mean_grs": 0.017078240636140083,
+        "std_grs": 0.01918596378967502
+    },
+    {
+        "phenotype": "miscarriage",
+        "num_sample": 56,
+        "mean_grs": 0.04673151252111712,
+        "std_grs": 0.09489967816778919
+    },
+    {
+        "phenotype": "preterm birth (PTB)",
+        "num_sample": 56,
+        "mean_grs": 0.02959379311799571,
+        "std_grs": 0.13185950079060776
+    },
+    {
+        "phenotype": "ovarian cancer",
+        "num_sample": 56,
+        "mean_grs": -0.01960559727517971,
+        "std_grs": 0.04039996775990441
+    },
+    {
+        "phenotype": "Cervical intraepithelial neoplasia",
+        "num_sample": 56,
+        "mean_grs": 0.021198276854810526,
+        "std_grs": 0.14572474515088885
+    },
+    {
+        "phenotype": "preterm prelabor rupture of membranes (PPROM)",
+        "num_sample": 56,
+        "mean_grs": 0.08586735309295634,
+        "std_grs": 0.1092028568082021
+    },
+    {
+        "phenotype": "dysmenorrhea(Menstrual pain)",
+        "num_sample": 56,
+        "mean_grs": 0.010948097387077518,
+        "std_grs": 0.08410506611764511
+    },
+    {
+        "phenotype": "adenomyosis",
+        "num_sample": 56,
+        "mean_grs": 0.033712846459819874,
+        "std_grs": 0.07671661255808557
+    },
+    {
+        "phenotype": "vaginal dryness",
+        "num_sample": 56,
+        "mean_grs": 0.028032245194777036,
+        "std_grs": 0.23829629269235658
+    }
+]
