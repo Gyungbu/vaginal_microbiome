@@ -58,7 +58,7 @@ df_beta.loc[df_beta['beta'] == '감소', 'beta'] = -1
 li_new_sample_name = list(df_exp.columns)[1:]  
 li_phenotype = list(dict.fromkeys(df_beta['phenotype']))
 
-# Top 5 NCBI name print
+## Top 5 NCBI name 
 li_phenotype_ncbi_name = []
 
 for idx, row in df_beta.iterrows(): 
