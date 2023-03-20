@@ -5,6 +5,8 @@ from scipy.stats import norm
 from scipy.stats import chi2
 import json
 import sys
+import math
+import matplotlib.pyplot as plt
 
 # Load the DB file
 # df_db : Data frame of accumulated Experimental result information - Abundance
@@ -42,8 +44,12 @@ except:
     sys.exit()
 
 # Delete the diversity, observed rows
-df_exp.drop(df_exp.index[0:2], inplace=True)
-df_db.drop(df_db.index[0:2], inplace=True)
+if (list(df_exp['taxa'][0:2]) == ['diversity', 'observed']) & (list(df_db['taxa'][0:2]) == ['diversity', 'observed']):
+    df_exp.drop(df_exp.index[0:2], inplace=True)
+    df_db.drop(df_db.index[0:2], inplace=True)
+else:
+    print("Check the diversity & observed rows in the exp file or db file")
+    sys.exit()
 
 
 # Load the Phenotype-Microbiome file
@@ -112,7 +118,7 @@ for idx_beta, row_beta in df_beta.iterrows():
     li_micro_sub = []
 
     if pd.isna(row_beta['microbiome_subtract']) is False:
-        li_micro_sub =row_beta['microbiome_subtract'].split('\n')
+        li_micro_sub = row_beta['microbiome_subtract'].split('\n')
         
         for micro_sub in li_micro_sub:
             condition = (df_exp.taxa == row_beta['microbiome'])
@@ -123,9 +129,8 @@ for idx_beta, row_beta in df_beta.iterrows():
                 for sample_name in li_new_sample_name:
                     df_exp.loc[condition, sample_name] -= df_exp[condition_sub][sample_name].values[0]
                     
-                                        
+
                     
-'''                    
 # Subtract the abundance - df_db <<Uncomment only when updating df_db>>
 
 li_sample_name = list(df_db.columns)[1:]  
@@ -134,7 +139,7 @@ for idx_beta, row_beta in df_beta.iterrows():
     li_micro_sub = []
 
     if pd.isna(row_beta['microbiome_subtract']) is False:
-        li_micro_sub =row_beta['microbiome_subtract'].split('\n')
+        li_micro_sub = row_beta['microbiome_subtract'].split('\n')
         
         for micro_sub in li_micro_sub:
             condition = (df_db.taxa == row_beta['microbiome'])
@@ -146,47 +151,47 @@ for idx_beta, row_beta in df_beta.iterrows():
                     df_db.loc[condition, sample_name] -= df_db[condition_sub][sample_name].values[0]                    
 
 
-# Calculate the Min & Max of abundance for each microbiome <<Uncomment only when updating json_abundance_min_max.json>>
+# Calculate the mean log of abundance for each microbiome <<Uncomment only when updating json_abundance_clr.json>>
 
-json_abundance_min_max= []
+json_abundance_clr= []
 
 for idx_beta, row_beta in df_beta.iterrows():
     
     condition = (df_db.taxa == row_beta['microbiome'])
     
-    min_abundance = 0
-    max_abundance = 0
+    mean_log_abundance = 0
     
     for idx_db, row_db in df_db[condition].iterrows():
         
         if len(row_db) > 0:
-            min_abundance = min(list(row_db)[1:])
-            max_abundance = max(list(row_db)[1:])
+            li_log_abundance = np.log(list(row_db)[1:] + np.ones_like(list(row_db)[1:])*1e-15)      
+            mean_log_abundance = np.mean(li_log_abundance)
+
 
     
-    json_abundance_min_max.append({"phenotype" : row_beta['phenotype'], "microbiome" : row_beta['microbiome'], "min_abundance" : min_abundance, "max_abundance" : max_abundance})       
+    json_abundance_clr.append({"phenotype" : row_beta['phenotype'], "microbiome" : row_beta['microbiome'], "mean_log_abundance" : mean_log_abundance})       
     
-# Save the json_abundance_min_max - <<Uncomment only when updating json_grs_statistics.json>>
-path_min_max = os.path.dirname(os.path.abspath(__file__)) + "/input/json_abundance_min_max.json"
+# Save the json_abundance_clr - <<Uncomment only when updating json_abundance_clr.json>>
+path_mean_clr = os.path.dirname(os.path.abspath(__file__)) + "/input/json_abundance_clr.json"
 
-with open(path_min_max, 'w') as f:
-    json.dump(json_abundance_min_max, f, indent=4, ensure_ascii=False)
-'''
+with open(path_mean_clr, 'w') as f:
+    json.dump(json_abundance_clr, f, indent=4, ensure_ascii=False)
+
     
 
-# Load the json_abundance_min_max
+# Load the json_abundance_clr
 
-path_min_max = os.path.dirname(os.path.abspath(__file__)) + "/input/json_abundance_min_max.json"
+path_mean_clr = os.path.dirname(os.path.abspath(__file__)) + "/input/json_abundance_clr.json"
 
-with open(path_min_max, "r") as f:
-    json_abundance_min_max = json.load(f)
+with open(path_mean_clr, "r") as f:
+    json_abundance_clr = json.load(f)
 
-df_min_max = pd.DataFrame.from_dict(json_abundance_min_max)   
+df_mean_clr = pd.DataFrame.from_dict(json_abundance_clr)   
 
 
 # Merge the dataframe - min & max
 
-df_beta = pd.merge(df_beta,df_min_max, how='left', on = ['phenotype', 'microbiome'])   
+df_beta = pd.merge(df_beta,df_mean_clr, how='left', on = ['phenotype', 'microbiome'])   
             
 # Calculate the GRS 
 # li_phenotype : Phenotype list 
@@ -197,23 +202,37 @@ df_grs = df_grs.fillna(0)
 
 for i in range(len(li_phenotype)):
     for j in range(len(li_new_sample_name)):
-        
-        condition_phen = (df_beta.phenotype == li_phenotype[i])
-        
+        condition_phen = (df_beta.phenotype == li_phenotype[i])   
         grs = 0
+        
         for idx_beta, row_beta in df_beta[condition_phen].iterrows():
             condition_micro = (df_exp.taxa == row_beta['microbiome'])
-            if (len(df_exp[condition_micro]) > 0) & (row_beta['max_abundance'] > 0):
-                
+            
+            if (len(df_exp[condition_micro]) > 0):      
                 x_i = df_exp[condition_micro][li_new_sample_name[j]].values[0]
-                norm_x_i = (x_i - row_beta['min_abundance']) / (row_beta['max_abundance'] - row_beta['min_abundance'])
+                clr_x_i = math.log(x_i + 1e-15) 
+                #clr_x_i = math.log(x_i + 1e-15) - row_beta['mean_log_abundance']    
+                grs += clr_x_i * row_beta['beta']
                 
-                grs += norm_x_i * row_beta['beta']
         grs /= len(df_beta[condition_phen])       
         df_grs.loc[li_phenotype[i], li_new_sample_name[j]] = grs
-        
-        
-'''        
+    
+# Histogram Plot - GRS
+
+def save_histograms_to_file(df, filename):
+    num_rows = df.shape[0]
+    fig, axs = plt.subplots(num_rows, 1, figsize=(8, 6*num_rows))
+    
+    for i in range(num_rows):
+        axs[i].hist(df.iloc[i,:], bins=10)
+        axs[i].set_title(df.index.to_list()[i])
+    
+    plt.tight_layout()
+    plt.savefig(filename)
+    
+save_histograms_to_file(df_grs, '/home/kbkim/vaginal_microbiome/output/grs_hist.png')    
+
+    
 # Sample Estimation - Population Standard deviation & Mean - <<Uncomment only when updating json_grs_statistics.json>>
 # json_grs_statistics : Json of GRS statistics - phenotype, num_sample, mean_grs, std_grs
 
@@ -244,7 +263,7 @@ path_statistics = os.path.dirname(os.path.abspath(__file__)) + "/input/json_grs_
 
 with open(path_statistics, 'w') as f:
     json.dump(json_grs_statistics, f, indent=4, ensure_ascii=False)
-'''
+
     
 
 

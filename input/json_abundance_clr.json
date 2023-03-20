@@ -1,0 +1,907 @@
+[
+    {
+        "phenotype": "pelvic inflammatory diseases",
+        "microbiome": "s__Neisseria_gonorrhoeae",
+        "mean_log_abundance": -34.108089054064756
+    },
+    {
+        "phenotype": "pelvic inflammatory diseases",
+        "microbiome": "s__Chlamydia_trachomatis",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "pelvic inflammatory diseases",
+        "microbiome": "s__CAG-536_sp000434355",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "g__Ureaplasma",
+        "mean_log_abundance": -27.570952431226026
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "g__Dialister",
+        "mean_log_abundance": -17.94980308647619
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "g__Bifidobacterium",
+        "mean_log_abundance": -17.669777680393825
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "g__Prevotella",
+        "mean_log_abundance": -4.863030531463898
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Dysgonomonas_sp000711235",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Bifidobacterium_vaginale",
+        "mean_log_abundance": -17.20479741084551
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Bifidobacterium_lacrimalis",
+        "mean_log_abundance": -16.706896995505357
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "g__Anaerococcus",
+        "mean_log_abundance": -9.809026348545743
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "g__Staphylococcus",
+        "mean_log_abundance": -18.29526527255749
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "g__Streptococcus",
+        "mean_log_abundance": -10.303545001945906
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Escherichia_coli",
+        "mean_log_abundance": -15.471918957666576
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Escherichia_flexneri",
+        "mean_log_abundance": -20.04503529765392
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Escherichia_dysenteriae",
+        "mean_log_abundance": -33.19437614054417
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Enterococcus_faecalis",
+        "mean_log_abundance": -30.245503839143435
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Chlamydia_trachomatis",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__CAG-536_sp000434355",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "g__Mycoplasma",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Mesomycoplasma_hyopneumoniae",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Malacoplasma_penetrans",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Metamycoplasma_hominis",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Mycoplasmoides_gallisepticum",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Mycoplasmopsis_crocodyli",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Mesomycoplasma_conjunctivae",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Mycoplasmoides_genitalium",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Mycoplasmoides_pneumoniae",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Mesomycoplasma_hyorhinis",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Eperythrozoon_haemofelis",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Mesomycoplasma_ovipneumoniae",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Malacoplasma_iowae",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Mycoplasmoides_pirum",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Mycoplasmopsis_leonicaptivi",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Mesomycoplasma_molare",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Metamycoplasma_hyosynoviae",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Metamycoplasma_anseris",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Mesomycoplasma_collis",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Mycoplasmoides_alvi",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Mycoplasmopsis_simbae",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Eperythrozoon_haemocanis",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Metamycoplasma_alkalescens",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Metamycoplasma_auris",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Metamycoplasma_orale",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Metamycoplasma_salivarium",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Mesomycoplasma_bovoculi",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Mycoplasmoides_testudinis",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Mesomycoplasma_flocculare",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Metamycoplasma_canadense",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Mesomycoplasma_dispar",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__GCF-1484045_sp001484045",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Mycoplasmopsis_testudinea",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Metamycoplasma_cloacale",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Klebsiella_pneumoniae",
+        "mean_log_abundance": -28.216939265148945
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "g__Acidovorax",
+        "mean_log_abundance": -34.538776394910684
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Diaphorobacter_sp003248855",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__MR-S7_sp000400995",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "g__Sphingomonas",
+        "mean_log_abundance": -22.639568246468826
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Rhizorhabdus_wittichii",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Rhizorhabdus_histidinilytica",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Sphingobium_sp000153545",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__B12_sp000383095",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Rhizorhabdus_sp000971055",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Rhizorhabdus_sp001428605",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Rhizorhabdus_sp001429065",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__FW-11_sp003050615",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Rhizorhabdus_sp900101455",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Sphningosinicella_indica",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "g__Peptoniphilus",
+        "mean_log_abundance": -8.555760218817293
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Urinacoccus_sp000221565",
+        "mean_log_abundance": -31.791062637746624
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "g__Phyllobacterium",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Paramesorhizobium_sp002980495",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Paramesorhizobium_leguminum",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "g__Escherichia",
+        "mean_log_abundance": -12.238505114255764
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "g__Lactobacillus",
+        "mean_log_abundance": -5.090754978251037
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Enterococcus_durans",
+        "mean_log_abundance": -34.09110880681613
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "g__Varibaculum",
+        "mean_log_abundance": -15.824133206594281
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Urmitella_timonensis",
+        "mean_log_abundance": -33.19211227581262
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "g__Propionibacterium",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Cutibacterium_acnes",
+        "mean_log_abundance": -17.408828844191124
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Cutibacterium_avidum",
+        "mean_log_abundance": -32.18240977970579
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Propionimicrobium_sp000413315",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Cutibacterium_granulosum",
+        "mean_log_abundance": -31.301293148257837
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Cutibacterium_namnetense",
+        "mean_log_abundance": -34.087016797185704
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Cutibacterium_humerusii",
+        "mean_log_abundance": -33.603066248290055
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "g__Porphyromonas",
+        "mean_log_abundance": -18.140509412133692
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Bacteroides_sartorii",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "g__Neisseria",
+        "mean_log_abundance": -33.655049281975494
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Bergeriella_sp002216145",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Bergeriella_sp002327085",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Bergeriella_iguanae",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Bergeriella_sp002803635",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "g__Haemophilus",
+        "mean_log_abundance": -23.67450520645703
+    },
+    {
+        "phenotype": "endometritis",
+        "microbiome": "s__Histophilus_haemoglobinophilu",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "miscarriage",
+        "microbiome": "s__Bifidobacterium_vaginale",
+        "mean_log_abundance": -17.20479741084551
+    },
+    {
+        "phenotype": "miscarriage",
+        "microbiome": "s__Bifidobacterium_lacrimalis",
+        "mean_log_abundance": -16.706896995505357
+    },
+    {
+        "phenotype": "miscarriage",
+        "microbiome": "s__Metamycoplasma_hominis",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "miscarriage",
+        "microbiome": "s__Ureaplasma_urealyticum",
+        "mean_log_abundance": -33.6512694255656
+    },
+    {
+        "phenotype": "preterm birth (PTB)",
+        "microbiome": "s__Lactobacillus_crispatus",
+        "mean_log_abundance": -13.660747757221122
+    },
+    {
+        "phenotype": "preterm birth (PTB)",
+        "microbiome": "g__Prevotella",
+        "mean_log_abundance": -4.863030531463898
+    },
+    {
+        "phenotype": "preterm birth (PTB)",
+        "microbiome": "s__Sneathia_amnii",
+        "mean_log_abundance": -18.142160568767174
+    },
+    {
+        "phenotype": "preterm birth (PTB)",
+        "microbiome": "g__Dialister",
+        "mean_log_abundance": -17.94980308647619
+    },
+    {
+        "phenotype": "preterm birth (PTB)",
+        "microbiome": "s__Aerococcus_christensenii",
+        "mean_log_abundance": -29.761179629243365
+    },
+    {
+        "phenotype": "preterm birth (PTB)",
+        "microbiome": "g__Parvimonas",
+        "mean_log_abundance": -29.065220448720204
+    },
+    {
+        "phenotype": "ovarian cancer",
+        "microbiome": "s__Chlamydia_trachomatis",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "ovarian cancer",
+        "microbiome": "s__CAG-536_sp000434355",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "ovarian cancer",
+        "microbiome": "s__Facklamia_hominis",
+        "mean_log_abundance": -25.268635275186718
+    },
+    {
+        "phenotype": "ovarian cancer",
+        "microbiome": "g__Corynebacterium",
+        "mean_log_abundance": -13.836011433149164
+    },
+    {
+        "phenotype": "ovarian cancer",
+        "microbiome": "s__Brachybacterium_xerosis",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "ovarian cancer",
+        "microbiome": "g__Dialister",
+        "mean_log_abundance": -17.94980308647619
+    },
+    {
+        "phenotype": "Cervical intraepithelial neoplasia",
+        "microbiome": "s__Fannyhessea_vaginae",
+        "mean_log_abundance": -17.66549980376334
+    },
+    {
+        "phenotype": "Cervical intraepithelial neoplasia",
+        "microbiome": "s__Bifidobacterium_vaginale",
+        "mean_log_abundance": -17.20479741084551
+    },
+    {
+        "phenotype": "Cervical intraepithelial neoplasia",
+        "microbiome": "s__Bifidobacterium_lacrimalis",
+        "mean_log_abundance": -16.706896995505357
+    },
+    {
+        "phenotype": "Cervical intraepithelial neoplasia",
+        "microbiome": "s__Lactobacillus_iners",
+        "mean_log_abundance": -10.257512902976472
+    },
+    {
+        "phenotype": "Cervical intraepithelial neoplasia",
+        "microbiome": "s__Lactobacillus_crispatus",
+        "mean_log_abundance": -13.660747757221122
+    },
+    {
+        "phenotype": "preterm prelabor rupture of membranes (PPROM)",
+        "microbiome": "g__Prevotella",
+        "mean_log_abundance": -4.863030531463898
+    },
+    {
+        "phenotype": "preterm prelabor rupture of membranes (PPROM)",
+        "microbiome": "s__Dysgonomonas_sp000711235",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "preterm prelabor rupture of membranes (PPROM)",
+        "microbiome": "g__Streptococcus",
+        "mean_log_abundance": -10.303545001945906
+    },
+    {
+        "phenotype": "preterm prelabor rupture of membranes (PPROM)",
+        "microbiome": "g__Peptoniphilus",
+        "mean_log_abundance": -8.555760218817293
+    },
+    {
+        "phenotype": "preterm prelabor rupture of membranes (PPROM)",
+        "microbiome": "s__Urinacoccus_sp000221565",
+        "mean_log_abundance": -31.791062637746624
+    },
+    {
+        "phenotype": "preterm prelabor rupture of membranes (PPROM)",
+        "microbiome": "g__Ureaplasma",
+        "mean_log_abundance": -27.570952431226026
+    },
+    {
+        "phenotype": "preterm prelabor rupture of membranes (PPROM)",
+        "microbiome": "g__Dialister",
+        "mean_log_abundance": -17.94980308647619
+    },
+    {
+        "phenotype": "dysmenorrhea(Menstrual pain)",
+        "microbiome": "g__Lactobacillus",
+        "mean_log_abundance": -5.090754978251037
+    },
+    {
+        "phenotype": "dysmenorrhea(Menstrual pain)",
+        "microbiome": "s__Enterococcus_durans",
+        "mean_log_abundance": -34.09110880681613
+    },
+    {
+        "phenotype": "dysmenorrhea(Menstrual pain)",
+        "microbiome": "g__Prevotella",
+        "mean_log_abundance": -4.863030531463898
+    },
+    {
+        "phenotype": "dysmenorrhea(Menstrual pain)",
+        "microbiome": "s__Dysgonomonas_sp000711235",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "dysmenorrhea(Menstrual pain)",
+        "microbiome": "g__Atopobium",
+        "mean_log_abundance": -29.189985469896406
+    },
+    {
+        "phenotype": "dysmenorrhea(Menstrual pain)",
+        "microbiome": "s__Lancefieldella_sp000411555",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "dysmenorrhea(Menstrual pain)",
+        "microbiome": "s__Olegusella_sp000466405",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "dysmenorrhea(Menstrual pain)",
+        "microbiome": "s__Lancefieldella_sp000564995",
+        "mean_log_abundance": -34.099394425409805
+    },
+    {
+        "phenotype": "dysmenorrhea(Menstrual pain)",
+        "microbiome": "s__Fannyhessea_vaginae",
+        "mean_log_abundance": -17.66549980376334
+    },
+    {
+        "phenotype": "dysmenorrhea(Menstrual pain)",
+        "microbiome": "s__Bifidobacterium_vaginale",
+        "mean_log_abundance": -17.20479741084551
+    },
+    {
+        "phenotype": "dysmenorrhea(Menstrual pain)",
+        "microbiome": "s__Bifidobacterium_lacrimalis",
+        "mean_log_abundance": -16.706896995505357
+    },
+    {
+        "phenotype": "adenomyosis",
+        "microbiome": "g__Alloscardovia",
+        "mean_log_abundance": -32.04799585968054
+    },
+    {
+        "phenotype": "adenomyosis",
+        "microbiome": "f__Ruminococcaceae",
+        "mean_log_abundance": -11.039381503189798
+    },
+    {
+        "phenotype": "adenomyosis",
+        "microbiome": "s__Clostridium_leptum",
+        "mean_log_abundance": -33.08356399572768
+    },
+    {
+        "phenotype": "adenomyosis",
+        "microbiome": "s__Blautia_wexlerae",
+        "mean_log_abundance": -20.244565879832837
+    },
+    {
+        "phenotype": "adenomyosis",
+        "microbiome": "s__Pseudoflavonifractor_capillosus",
+        "mean_log_abundance": -33.192269977912545
+    },
+    {
+        "phenotype": "adenomyosis",
+        "microbiome": "s__Ethanoligenens_harbinense",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "adenomyosis",
+        "microbiome": "s__Saccharofermentans_sp900176545",
+        "mean_log_abundance": -34.095388475855884
+    },
+    {
+        "phenotype": "adenomyosis",
+        "microbiome": "s__Flavonifractor_sp000508885",
+        "mean_log_abundance": -33.66776144864607
+    },
+    {
+        "phenotype": "adenomyosis",
+        "microbiome": "s__Ruminiclostridium_cellulosi",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "adenomyosis",
+        "microbiome": "s__Flavonifractor_plautii",
+        "mean_log_abundance": -31.85663616001551
+    },
+    {
+        "phenotype": "adenomyosis",
+        "microbiome": "s__Alistipes_sp900240235",
+        "mean_log_abundance": -33.588930202424315
+    },
+    {
+        "phenotype": "adenomyosis",
+        "microbiome": "s__UBA4871_sp002119605",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "adenomyosis",
+        "microbiome": "s__Flavonifractor_sp002159175",
+        "mean_log_abundance": -32.33808116292277
+    },
+    {
+        "phenotype": "adenomyosis",
+        "microbiome": "s__Flavonifractor_sp002161215",
+        "mean_log_abundance": -34.095388475855884
+    },
+    {
+        "phenotype": "adenomyosis",
+        "microbiome": "s__Acutalibacter_muris",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "adenomyosis",
+        "microbiome": "s__Ruminococcus_bromii",
+        "mean_log_abundance": -28.973553496219267
+    },
+    {
+        "phenotype": "adenomyosis",
+        "microbiome": "s__ER4_sp000765235",
+        "mean_log_abundance": -27.210907043161537
+    },
+    {
+        "phenotype": "adenomyosis",
+        "microbiome": "s__Ruminococcus_sp900314705",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "adenomyosis",
+        "microbiome": "s__Faecalicatena_torques",
+        "mean_log_abundance": -30.840080530745443
+    },
+    {
+        "phenotype": "adenomyosis",
+        "microbiome": "s__GCA-900066995_sp900291955",
+        "mean_log_abundance": -33.095173608639755
+    },
+    {
+        "phenotype": "adenomyosis",
+        "microbiome": "s__Lawsonibacter_sp900066645",
+        "mean_log_abundance": -34.10776773073445
+    },
+    {
+        "phenotype": "adenomyosis",
+        "microbiome": "s__Lawsonibacter_sp900066825",
+        "mean_log_abundance": -32.29612331763904
+    },
+    {
+        "phenotype": "adenomyosis",
+        "microbiome": "s__Intestinimonas_massiliensis",
+        "mean_log_abundance": -34.10611227702793
+    },
+    {
+        "phenotype": "adenomyosis",
+        "microbiome": "s__Blautia_sp900066165",
+        "mean_log_abundance": -31.335200685066532
+    },
+    {
+        "phenotype": "adenomyosis",
+        "microbiome": "s__Anaeromassilibacillus_sp001305115",
+        "mean_log_abundance": -33.13330893517282
+    },
+    {
+        "phenotype": "adenomyosis",
+        "microbiome": "s__Marseille-P3106_sp900169975",
+        "mean_log_abundance": -33.20073947003623
+    },
+    {
+        "phenotype": "adenomyosis",
+        "microbiome": "s__UBA945_sp900197595",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "adenomyosis",
+        "microbiome": "s__Solobacterium_sp900290205",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "adenomyosis",
+        "microbiome": "s__Marseille-P4683_sp900232885",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "adenomyosis",
+        "microbiome": "s__Acutalibacter_timonensis",
+        "mean_log_abundance": -33.66374546567403
+    },
+    {
+        "phenotype": "adenomyosis",
+        "microbiome": "f__Oscillospiraceae",
+        "mean_log_abundance": -18.018550536253105
+    },
+    {
+        "phenotype": "adenomyosis",
+        "microbiome": "g__Enhydrobacter",
+        "mean_log_abundance": -34.085425405935624
+    },
+    {
+        "phenotype": "adenomyosis",
+        "microbiome": "s__Moraxella_aerosaccus",
+        "mean_log_abundance": -30.35131895727552
+    },
+    {
+        "phenotype": "adenomyosis",
+        "microbiome": "g__Megamonas",
+        "mean_log_abundance": -24.859849992854638
+    },
+    {
+        "phenotype": "adenomyosis",
+        "microbiome": "f__Moraxellaceae",
+        "mean_log_abundance": -29.351322816499415
+    },
+    {
+        "phenotype": "adenomyosis",
+        "microbiome": "s__CAG-196_sp002102975",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "adenomyosis",
+        "microbiome": "s__Pseudomonas_aeruginosa",
+        "mean_log_abundance": -34.05732742058372
+    },
+    {
+        "phenotype": "adenomyosis",
+        "microbiome": "g__Subdoligranulum",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "adenomyosis",
+        "microbiome": "s__Ruthenibacterium_lactatiformans",
+        "mean_log_abundance": -33.20705799529641
+    },
+    {
+        "phenotype": "adenomyosis",
+        "microbiome": "s__Gemmiger_sp003476825",
+        "mean_log_abundance": -23.206107705519067
+    },
+    {
+        "phenotype": "adenomyosis",
+        "microbiome": "f__Selenomonadaceae",
+        "mean_log_abundance": -23.978381680488187
+    },
+    {
+        "phenotype": "vaginal dryness",
+        "microbiome": "g__Lactobacillus",
+        "mean_log_abundance": -5.090754978251037
+    },
+    {
+        "phenotype": "vaginal dryness",
+        "microbiome": "s__Enterococcus_durans",
+        "mean_log_abundance": -34.09110880681613
+    },
+    {
+        "phenotype": "vaginal dryness",
+        "microbiome": "g__Porphyromonas",
+        "mean_log_abundance": -18.140509412133692
+    },
+    {
+        "phenotype": "vaginal dryness",
+        "microbiome": "s__Bacteroides_sartorii",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "vaginal dryness",
+        "microbiome": "g__Peptoniphilus",
+        "mean_log_abundance": -8.555760218817293
+    },
+    {
+        "phenotype": "vaginal dryness",
+        "microbiome": "s__Urinacoccus_sp000221565",
+        "mean_log_abundance": -31.791062637746624
+    },
+    {
+        "phenotype": "vaginal dryness",
+        "microbiome": "g__Bacillus",
+        "mean_log_abundance": -24.56364295308318
+    }
+]

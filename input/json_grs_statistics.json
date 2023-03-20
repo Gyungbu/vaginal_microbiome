@@ -2,61 +2,61 @@
     {
         "phenotype": "pelvic inflammatory diseases",
         "num_sample": 56,
-        "mean_grs": 0.005952380952380952,
-        "std_grs": 0.04615443037874569
+        "mean_grs": -11.369363018021586,
+        "std_grs": 1.113175217732501
     },
     {
         "phenotype": "endometritis",
         "num_sample": 56,
-        "mean_grs": 0.017078240636140083,
-        "std_grs": 0.01918596378967502
+        "mean_grs": -5.918914297317081,
+        "std_grs": 0.8700079642364221
     },
     {
         "phenotype": "miscarriage",
         "num_sample": 56,
-        "mean_grs": 0.04673151252111712,
-        "std_grs": 0.09489967816778919
+        "mean_grs": -16.89074095797912,
+        "std_grs": 5.942931390208935
     },
     {
         "phenotype": "preterm birth (PTB)",
         "num_sample": 56,
-        "mean_grs": 0.02959379311799571,
-        "std_grs": 0.13185950079060776
+        "mean_grs": -14.353441084574952,
+        "std_grs": 5.555153986987754
     },
     {
         "phenotype": "ovarian cancer",
         "num_sample": 56,
-        "mean_grs": -0.01960559727517971,
-        "std_grs": 0.04039996775990441
+        "mean_grs": 1.086196540739772,
+        "std_grs": 3.1444992039680235
     },
     {
         "phenotype": "Cervical intraepithelial neoplasia",
         "num_sample": 56,
-        "mean_grs": 0.021198276854810526,
-        "std_grs": 0.14572474515088885
+        "mean_grs": -9.634791871173912,
+        "std_grs": 8.193960572236083
     },
     {
         "phenotype": "preterm prelabor rupture of membranes (PPROM)",
         "num_sample": 56,
-        "mean_grs": 0.08586735309295634,
-        "std_grs": 0.1092028568082021
+        "mean_grs": -14.43345055823942,
+        "std_grs": 4.8466490336768695
     },
     {
         "phenotype": "dysmenorrhea(Menstrual pain)",
         "num_sample": 56,
-        "mean_grs": 0.010948097387077518,
-        "std_grs": 0.08410506611764511
+        "mean_grs": -7.322521895619741,
+        "std_grs": 3.0313645661604083
     },
     {
         "phenotype": "adenomyosis",
         "num_sample": 56,
-        "mean_grs": 0.033712846459819874,
-        "std_grs": 0.07671661255808557
+        "mean_grs": -22.739707761289907,
+        "std_grs": 2.5520810248694743
     },
     {
         "phenotype": "vaginal dryness",
         "num_sample": 56,
-        "mean_grs": 0.028032245194777036,
-        "std_grs": 0.23829629269235658
+        "mean_grs": -6.267015919530516,
+        "std_grs": 4.030630347242192
     }
 ]
