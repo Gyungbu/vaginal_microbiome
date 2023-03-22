@@ -298,7 +298,7 @@ for i in range(len(li_phenotype)):
 # Probability Change - Outliers
 
 for i in range(len(li_phenotype)):
-    df_probabilities.loc[df_probabilities[li_phenotype[i]]<=10, li_phenotype[i]] = 10.0
+    df_probabilities.loc[df_probabilities[li_phenotype[i]]<=10, li_phenotype[i]] = 5.0
     df_probabilities.loc[df_probabilities[li_phenotype[i]]>=95, li_phenotype[i]] = 95.0
 
 df_probabilities = df_probabilities.fillna('None')
