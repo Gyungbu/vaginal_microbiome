@@ -490,36 +490,6 @@
         "mean_log_abundance": -33.6512694255656
     },
     {
-        "phenotype": "preterm birth (PTB)",
-        "microbiome": "s__Lactobacillus_crispatus",
-        "mean_log_abundance": -13.660747757221122
-    },
-    {
-        "phenotype": "preterm birth (PTB)",
-        "microbiome": "g__Prevotella",
-        "mean_log_abundance": -4.863030531463898
-    },
-    {
-        "phenotype": "preterm birth (PTB)",
-        "microbiome": "s__Sneathia_amnii",
-        "mean_log_abundance": -18.142160568767174
-    },
-    {
-        "phenotype": "preterm birth (PTB)",
-        "microbiome": "g__Dialister",
-        "mean_log_abundance": -17.94980308647619
-    },
-    {
-        "phenotype": "preterm birth (PTB)",
-        "microbiome": "s__Aerococcus_christensenii",
-        "mean_log_abundance": -29.761179629243365
-    },
-    {
-        "phenotype": "preterm birth (PTB)",
-        "microbiome": "g__Parvimonas",
-        "mean_log_abundance": -29.065220448720204
-    },
-    {
         "phenotype": "ovarian cancer",
         "microbiome": "s__Chlamydia_trachomatis",
         "mean_log_abundance": 0
@@ -817,22 +787,12 @@
     {
         "phenotype": "adenomyosis",
         "microbiome": "f__Oscillospiraceae",
-        "mean_log_abundance": -18.018550536253105
+        "mean_log_abundance": -22.68177277952055
     },
     {
         "phenotype": "adenomyosis",
         "microbiome": "g__Enhydrobacter",
         "mean_log_abundance": -34.085425405935624
-    },
-    {
-        "phenotype": "adenomyosis",
-        "microbiome": "s__Moraxella_aerosaccus",
-        "mean_log_abundance": -30.35131895727552
-    },
-    {
-        "phenotype": "adenomyosis",
-        "microbiome": "g__Megamonas",
-        "mean_log_abundance": -24.859849992854638
     },
     {
         "phenotype": "adenomyosis",
@@ -848,21 +808,6 @@
         "phenotype": "adenomyosis",
         "microbiome": "s__Pseudomonas_aeruginosa",
         "mean_log_abundance": -34.05732742058372
-    },
-    {
-        "phenotype": "adenomyosis",
-        "microbiome": "g__Subdoligranulum",
-        "mean_log_abundance": 0
-    },
-    {
-        "phenotype": "adenomyosis",
-        "microbiome": "s__Ruthenibacterium_lactatiformans",
-        "mean_log_abundance": -33.20705799529641
-    },
-    {
-        "phenotype": "adenomyosis",
-        "microbiome": "s__Gemmiger_sp003476825",
-        "mean_log_abundance": -23.206107705519067
     },
     {
         "phenotype": "adenomyosis",
@@ -903,5 +848,130 @@
         "phenotype": "vaginal dryness",
         "microbiome": "g__Bacillus",
         "mean_log_abundance": -24.56364295308318
+    },
+    {
+        "phenotype": "gestational diabetes",
+        "microbiome": "g__Varibaculum",
+        "mean_log_abundance": -15.824133206594281
+    },
+    {
+        "phenotype": "gestational diabetes",
+        "microbiome": "s__Urmitella_timonensis",
+        "mean_log_abundance": -33.19211227581262
+    },
+    {
+        "phenotype": "gestational diabetes",
+        "microbiome": "g__Prevotella",
+        "mean_log_abundance": -4.863030531463898
+    },
+    {
+        "phenotype": "gestational diabetes",
+        "microbiome": "s__Dysgonomonas_sp000711235",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "gestational diabetes",
+        "microbiome": "g__Porphyromonas",
+        "mean_log_abundance": -18.140509412133692
+    },
+    {
+        "phenotype": "gestational diabetes",
+        "microbiome": "s__Bacteroides_sartorii",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "gestational diabetes",
+        "microbiome": "g__Ezakiella",
+        "mean_log_abundance": -22.21502454515314
+    },
+    {
+        "phenotype": "gestational diabetes",
+        "microbiome": "g__Bacteroides",
+        "mean_log_abundance": -7.692313957617311
+    },
+    {
+        "phenotype": "gestational diabetes",
+        "microbiome": "s__Barnesiella_intestinihominis",
+        "mean_log_abundance": -31.419721970814145
+    },
+    {
+        "phenotype": "gestational diabetes",
+        "microbiome": "s__CAG-462_sp900291465",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "gestational diabetes",
+        "microbiome": "g__Veillonella",
+        "mean_log_abundance": -23.66528724412476
+    },
+    {
+        "phenotype": "gestational diabetes",
+        "microbiome": "g__Klebsiella",
+        "mean_log_abundance": -24.549042610913364
+    },
+    {
+        "phenotype": "gestational diabetes",
+        "microbiome": "s__Kosakonia_cowanii",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "gestational diabetes",
+        "microbiome": "s__Cedecea_michiganensis",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "gestational diabetes",
+        "microbiome": "s__Pseudomonas_aeruginosa",
+        "mean_log_abundance": -34.05732742058372
+    },
+    {
+        "phenotype": "gestational diabetes",
+        "microbiome": "g__Escherichia",
+        "mean_log_abundance": -12.238505114255764
+    },
+    {
+        "phenotype": "gestational diabetes",
+        "microbiome": "g__Enterococcus",
+        "mean_log_abundance": -25.816927814514433
+    },
+    {
+        "phenotype": "gestational diabetes",
+        "microbiome": "s__Vagococcus_sp002140795",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "gestational diabetes",
+        "microbiome": "g__Enterobacter",
+        "mean_log_abundance": -32.18485788924458
+    },
+    {
+        "phenotype": "gestational diabetes",
+        "microbiome": "s__Kosakonia_sp000814905",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "gestational diabetes",
+        "microbiome": "s__Kosakonia_oryzendophytica",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "gestational diabetes",
+        "microbiome": "s__Kosakonia_sp002886105",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "gestational diabetes",
+        "microbiome": "s__Lelliottia_sp000016325",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "gestational diabetes",
+        "microbiome": "s__Atlantibacter_sp002388125",
+        "mean_log_abundance": 0
+    },
+    {
+        "phenotype": "gestational diabetes",
+        "microbiome": "s__Citrobacter_portucalensis",
+        "mean_log_abundance": -33.64329581676849
     }
 ]

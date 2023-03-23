@@ -153,7 +153,7 @@ for idx_beta, row_beta in df_beta.iterrows():
 
 # Calculate the mean log of abundance for each microbiome <<Uncomment only when updating json_abundance_clr.json>>
 
-json_abundance_clr= []
+json_abundance_clr = []
 
 for idx_beta, row_beta in df_beta.iterrows():
     
@@ -298,7 +298,7 @@ for i in range(len(li_phenotype)):
 # Probability Change - Outliers
 
 for i in range(len(li_phenotype)):
-    df_probabilities.loc[df_probabilities[li_phenotype[i]]<=10, li_phenotype[i]] = 5.0
+    df_probabilities.loc[df_probabilities[li_phenotype[i]]<=5, li_phenotype[i]] = 5.0
     df_probabilities.loc[df_probabilities[li_phenotype[i]]>=95, li_phenotype[i]] = 95.0
 
 df_probabilities = df_probabilities.fillna('None')

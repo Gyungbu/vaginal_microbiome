@@ -18,12 +18,6 @@
         "std_grs": 5.942931390208935
     },
     {
-        "phenotype": "preterm birth (PTB)",
-        "num_sample": 56,
-        "mean_grs": -14.353441084574952,
-        "std_grs": 5.555153986987754
-    },
-    {
         "phenotype": "ovarian cancer",
         "num_sample": 56,
         "mean_grs": 1.086196540739772,
@@ -50,13 +44,19 @@
     {
         "phenotype": "adenomyosis",
         "num_sample": 56,
-        "mean_grs": -22.739707761289907,
-        "std_grs": 2.5520810248694743
+        "mean_grs": -22.926858494589112,
+        "std_grs": 2.5029598533702986
     },
     {
         "phenotype": "vaginal dryness",
         "num_sample": 56,
         "mean_grs": -6.267015919530516,
         "std_grs": 4.030630347242192
+    },
+    {
+        "phenotype": "gestational diabetes",
+        "num_sample": 56,
+        "mean_grs": -5.2412987947071565,
+        "std_grs": 1.5941795041685474
     }
 ]
