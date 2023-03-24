@@ -123,7 +123,7 @@ for idx_beta, row_beta in df_beta.iterrows():
                     df_exp.loc[condition, sample_name] -= df_exp[condition_sub][sample_name].values[0]
                     
 
-                    
+'''                    
 # Subtract the abundance - df_db <<Uncomment only when updating df_db>>
 
 li_sample_name = list(df_db.columns)[1:]  
@@ -142,7 +142,7 @@ for idx_beta, row_beta in df_beta.iterrows():
                 
                 for sample_name in li_sample_name:
                     df_db.loc[condition, sample_name] -= df_db[condition_sub][sample_name].values[0]                    
-
+'''
 
 # Calculate the GRS 
 # li_phenotype : Phenotype list 
@@ -182,7 +182,7 @@ def save_histograms_to_file(df, filename):
     
 save_histograms_to_file(df_grs, '/home/kbkim/vaginal_microbiome/output/grs_hist.png')    
 
-    
+'''    
 # Sample Estimation - Population Standard deviation & Mean - <<Uncomment only when updating json_grs_statistics.json>>
 # json_grs_statistics : Json of GRS statistics - phenotype, num_sample, mean_grs, std_grs
 
@@ -213,7 +213,7 @@ path_statistics = os.path.dirname(os.path.abspath(__file__)) + "/input/json_grs_
 
 with open(path_statistics, 'w') as f:
     json.dump(json_grs_statistics, f, indent=4, ensure_ascii=False)
-
+'''
     
 
 
