@@ -37,7 +37,9 @@ except:
     print("Check the Experiment result file")
     sys.exit()
 
-    
+# Update the statistic - <<Uncomment only when updating json_grs_statistics.json>>     
+df_exp = df_db     
+ 
 # Delete the diversity, observed rows
 if (list(df_exp['taxa'][0:2]) == ['diversity', 'observed']) & (list(df_db['taxa'][0:2]) == ['diversity', 'observed']):
     df_exp.drop(df_exp.index[0:2], inplace=True)
@@ -145,54 +147,52 @@ for i in range(len(li_phenotype)):
         grs /= len(df_beta[condition_phen])       
         df_grs.loc[li_phenotype[i], li_new_sample_name[j]] = grs
 
+# Histogram Plot - GRS - <<Uncomment only when updating json_grs_statistics.json>>
+def save_histograms_to_file(df, filename):
+    num_rows = df.shape[0]
+    fig, axs = plt.subplots(num_rows, 1, figsize=(8, 6*num_rows))
+    
+    for i in range(num_rows):
+        axs[i].hist(df.iloc[i,:], bins=10)
+        axs[i].set_title(df.index.to_list()[i])
+    
+    plt.tight_layout()
+    plt.savefig(filename)
+    
+save_histograms_to_file(df_grs, '/home/kbkim/vaginal_microbiome/output/grs_hist.png')    
 
-# Load the list of the grs statistics in the DB
+# Sample Estimation - Population Standard deviation & Mean - <<Uncomment only when updating json_grs_statistics.json>>
+# json_grs_statistics : Json of GRS statistics - phenotype, num_sample, mean_grs, std_grs
+
+json_grs_statistics= []
+
+for i in range(len(li_phenotype)):
+  
+    li_grs = list(df_grs.iloc[i])
+    li_grs = [x for x in li_grs if np.isnan(x) == False]
+  
+    num_sample = len(li_grs)
+    if num_sample > 0:
+        std_grs_sample = np.std(li_grs)
+        mean_grs_sample = np.mean(li_grs)
+    
+        chi_1 = (chi2.ppf(1-.025, df=num_sample-1))**0.5
+        chi_2 = (chi2.ppf(1-.975, df=num_sample-1))**0.5
+    
+        std_grs_population = std_grs_sample * ((num_sample)**0.5) * (1/chi_1 + 1/chi_2) * 0.5
+        json_grs_statistics.append({"phenotype" : li_phenotype[i], "num_sample" : num_sample, "mean_grs" : mean_grs_sample, "std_grs" : std_grs_population})
+  
+    else:
+        json_grs_statistics.append({"phenotype" : li_phenotype[i], "num_sample" : 0, "mean_grs" : 'none', "std_grs" : 'none'})
+
+# Save the list of the grs statistics in the DB - <<Uncomment only when updating json_grs_statistics.json>>
 
 path_statistics = os.path.dirname(os.path.abspath(__file__)) + "/input/json_grs_statistics.json"
 
-with open(path_statistics, "r") as f:
-    json_grs_statistics = json.load(f)
+with open(path_statistics, 'w') as f:
+    json.dump(json_grs_statistics, f, indent=4, ensure_ascii=False)
 
-df_statistics = pd.DataFrame.from_dict(json_grs_statistics)    
-    
-    
-# Calculation - Z scroe & Probability
-# Probability Change - Negative phenotype
-# li_phenotype : Phenotype list 
-# li_new_sample_name : New Sample Name list
-
-df_probabilities = pd.DataFrame(index = li_new_sample_name, columns = li_phenotype)
-
-for i in range(len(li_phenotype)):
-    for j in range(len(li_new_sample_name)):
-        condition = (df_statistics.phenotype == li_phenotype[i])
-        if (np.isnan(df_grs.loc[li_phenotype[i], li_new_sample_name[j]]) == False) & (len(df_statistics.loc[condition])==1):    
-            df_grs.loc[li_phenotype[i], li_new_sample_name[j]] -= df_statistics[condition].iloc[0,2]
-            df_grs.loc[li_phenotype[i], li_new_sample_name[j]] /= df_statistics[condition].iloc[0,3]
-      
-            df_probabilities.loc[li_new_sample_name[j], li_phenotype[i]] = (100 * norm.cdf(df_grs.loc[li_phenotype[i], li_new_sample_name[j]])).round(1)
-
-
-
-# Probability Change - Outliers
-
-for i in range(len(li_phenotype)):
-    df_probabilities.loc[df_probabilities[li_phenotype[i]]<=5, li_phenotype[i]] = 5.0
-    df_probabilities.loc[df_probabilities[li_phenotype[i]]>=95, li_phenotype[i]] = 95.0
-
-df_probabilities = df_probabilities.fillna('None')
-
-# Merge the valencia output file & df_probabilities
-
-df_probabilities = pd.merge(df_probabilities, df_valencia[['sampleID', 'subCST', 'score', 'CST']], how='left',left_index=True, right_on = 'sampleID') 
-df_probabilities = df_probabilities.set_index(keys=['sampleID'], inplace=False, drop=True)    
-
-# Save the output file - Probabilities calculated by estimating population variance samples
-
-path_vaginal_probability_sample_estimation_output = os.path.dirname(os.path.abspath(__file__)) + "/output/vaginal_probability_sample_estimation.xlsx"
-df_probabilities.to_excel(path_vaginal_probability_sample_estimation_output)
-
-print('Analysis Complete')       
+print('Update Complete')       
      
         
         
