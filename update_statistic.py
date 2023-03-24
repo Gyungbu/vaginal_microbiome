@@ -60,53 +60,6 @@ df_beta['beta'] = df_beta['beta'].replace({'증가': 1, '감소': -1})
 li_new_sample_name = list(df_exp.columns)[1:]  
 li_phenotype = list(dict.fromkeys(df_beta['phenotype']))
 
-## Top 5 NCBI name 
-li_phenotype_ncbi_name = []
-
-for idx, row in df_beta.iterrows(): 
-    if [row['phenotype'], row['ncbi_name']] not in li_phenotype_ncbi_name:
-        li_phenotype_ncbi_name.append([row['phenotype'], row['ncbi_name']])
-
-json_abundance = []
-
-for i in range(len(li_new_sample_name)):
-    for j in range(len(li_phenotype_ncbi_name)):
-        
-        condition_phen = (df_beta.phenotype == li_phenotype_ncbi_name[j][0]) & (df_beta.ncbi_name == li_phenotype_ncbi_name[j][1])
-
-        abundance = 0 
-        for idx_beta, row_beta in df_beta[condition_phen].iterrows():
-             
-            if (row_beta['beta'] == 1) & (row_beta['microbiome'][:3] in ['s__', 'g__']):
-                condition = (df_exp.taxa == row_beta['microbiome'])
-                if len(df_exp[condition]) > 0:
-                    abundance += df_exp[condition][li_new_sample_name[i]].values[0]
-                
-            if (row_beta['beta'] == 1) & (pd.isna(row_beta['microbiome_subtract']) is False):
-                li_micro_sub = row_beta['microbiome_subtract'].split('\n')
-                    
-                for micro_sub in li_micro_sub:
-                    condition_sub = (df_exp.taxa == micro_sub)
-                    if len(df_exp[condition_sub]) > 0:
-                        abundance -= df_exp[condition_sub][li_new_sample_name[i]].values[0]
-     
-            
-        json_abundance.append({"sample_name" : li_new_sample_name[i], "phenotype" : li_phenotype_ncbi_name[j][0], "ncbi_name" : li_phenotype_ncbi_name[j][1], "abundance" : abundance})
-df_abundance = pd.DataFrame.from_dict(json_abundance)   
-
-df_top_five = pd.DataFrame(columns = ["sample_name", "phenotype", "ncbi_name","abundance"])
-
-for i in range(len(li_new_sample_name)):
-    for j in range(len(li_phenotype)):
-    
-        condition = (df_abundance.sample_name == li_new_sample_name[i]) & (df_abundance.phenotype == li_phenotype[j])
-        df_new = df_abundance[condition].sort_values(by=['abundance'], ascending=False).head(5)
-        df_top_five = pd.concat([df_top_five,df_new])
-
-df_top_five = df_top_five.set_index(keys=['sample_name'], inplace=False, drop=True)           
-df_top_five.to_excel('/home/kbkim/vaginal_microbiome/output/top5.xlsx')
-
-
 # Subtract the abundance - df_exp
 
 for idx_beta, row_beta in df_beta.iterrows(): 
