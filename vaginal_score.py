@@ -40,8 +40,8 @@ except:
     
 # Delete the diversity, observed rows
 if (list(df_exp['taxa'][0:2]) == ['diversity', 'observed']) & (list(df_db['taxa'][0:2]) == ['diversity', 'observed']):
-    df_exp.drop(df_exp.index[0:2], inplace=True)
-    df_db.drop(df_db.index[0:2], inplace=True)
+    df_exp = df_exp.iloc[2:,:]
+    df_db = df_db.iloc[2:,:]
 else:
     print("Check the diversity & observed rows in the exp file or db file")
     sys.exit()
