@@ -30,20 +30,20 @@ try:
     df_db = df_db.fillna(0)
     df_db = df_db.filter(regex='^(?!.*_right).*') # Eliminate duplicate columns
 
+    # Update the statistic - <<Uncomment only when updating json_grs_statistics.json>>     
+    df_exp = df_db
+
     df_db_rev = df_db.set_index(keys=['taxa'], inplace=False, drop=True)    
     df_db_rev.to_csv(path_db)
     
 except:
     print("Check the Experiment result file")
     sys.exit()
-
-# Update the statistic - <<Uncomment only when updating json_grs_statistics.json>>     
-df_exp = df_db     
- 
+    
 # Delete the diversity, observed rows
 if (list(df_exp['taxa'][0:2]) == ['diversity', 'observed']) & (list(df_db['taxa'][0:2]) == ['diversity', 'observed']):
-    df_exp.drop(df_exp.index[0:2], inplace=True)
-    df_db.drop(df_db.index[0:2], inplace=True)
+    df_exp = df_exp.iloc[2:,:]
+    df_db = df_db.iloc[2:,:]
 else:
     print("Check the diversity & observed rows in the exp file or db file")
     sys.exit()
@@ -94,9 +94,14 @@ for i in range(len(li_phenotype)):
             
             if (len(df_exp[condition_micro]) > 0):      
                 x_i = df_exp[condition_micro][li_new_sample_name[j]].values[0]
-                clr_x_i = math.log(x_i + 1e-15)  
-                grs += clr_x_i * row_beta['beta']
-                
+                ln_x_i = math.log(x_i + 1e-15)  
+                grs += ln_x_i * row_beta['beta']
+            
+            elif (len(df_exp[condition_micro]) == 0):      
+                x_i = 0
+                ln_x_i = math.log(x_i + 1e-15)  
+                grs += ln_x_i * row_beta['beta']                
+            
         grs /= len(df_beta[condition_phen])       
         df_grs.loc[li_phenotype[i], li_new_sample_name[j]] = grs
 

@@ -139,9 +139,14 @@ for i in range(len(li_phenotype)):
             
             if (len(df_exp[condition_micro]) > 0):      
                 x_i = df_exp[condition_micro][li_new_sample_name[j]].values[0]
-                clr_x_i = math.log(x_i + 1e-15)  
-                grs += clr_x_i * row_beta['beta']
-                
+                ln_x_i = math.log(x_i + 1e-15)  
+                grs += ln_x_i * row_beta['beta']
+            
+            elif (len(df_exp[condition_micro]) == 0):      
+                x_i = 0
+                ln_x_i = math.log(x_i + 1e-15)  
+                grs += ln_x_i * row_beta['beta']                
+            
         grs /= len(df_beta[condition_phen])       
         df_grs.loc[li_phenotype[i], li_new_sample_name[j]] = grs
 
