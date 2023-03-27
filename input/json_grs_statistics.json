@@ -2,25 +2,25 @@
     {
         "phenotype": "pelvic inflammatory diseases",
         "num_sample": 56,
-        "mean_grs": -11.369363018021586,
-        "std_grs": 1.113175217732501
+        "mean_grs": -34.39521394796204,
+        "std_grs": 1.1131752177325005
     },
     {
         "phenotype": "endometritis",
         "num_sample": 56,
-        "mean_grs": -5.918914297317081,
-        "std_grs": 0.8700079642364221
+        "mean_grs": -24.137169978149075,
+        "std_grs": 0.8700079642364225
     },
     {
         "phenotype": "miscarriage",
         "num_sample": 56,
-        "mean_grs": -16.89074095797912,
-        "std_grs": 5.942931390208935
+        "mean_grs": -25.525435056706787,
+        "std_grs": 5.942931390208937
     },
     {
         "phenotype": "ovarian cancer",
         "num_sample": 56,
-        "mean_grs": 1.086196540739772,
+        "mean_grs": -4.670266191745341,
         "std_grs": 3.1444992039680235
     },
     {
@@ -32,31 +32,31 @@
     {
         "phenotype": "preterm prelabor rupture of membranes (PPROM)",
         "num_sample": 56,
-        "mean_grs": -14.43345055823942,
+        "mean_grs": -19.36756147179809,
         "std_grs": 4.8466490336768695
     },
     {
         "phenotype": "dysmenorrhea(Menstrual pain)",
         "num_sample": 56,
-        "mean_grs": -7.322521895619741,
-        "std_grs": 3.0313645661604083
+        "mean_grs": -16.742188185140837,
+        "std_grs": 3.031364566160408
     },
     {
         "phenotype": "adenomyosis",
         "num_sample": 56,
-        "mean_grs": -22.926858494589112,
-        "std_grs": 2.5029598533702986
+        "mean_grs": -31.561552593316776,
+        "std_grs": 2.5029598533702995
     },
     {
         "phenotype": "vaginal dryness",
         "num_sample": 56,
-        "mean_grs": -6.267015919530516,
+        "mean_grs": -11.201126833089186,
         "std_grs": 4.030630347242192
     },
     {
         "phenotype": "gestational diabetes",
         "num_sample": 56,
-        "mean_grs": -5.2412987947071565,
-        "std_grs": 1.5941795041685474
+        "mean_grs": -14.912156185282146,
+        "std_grs": 1.5941795041685463
     }
 ]
