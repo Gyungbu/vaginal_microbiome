@@ -1,60 +1,60 @@
 [
     {
-        "phenotype": "pelvic inflammatory diseases",
+        "phenotype": "Pelvic Inflammatory Diseases",
         "num_sample": 56,
         "mean_grs": -34.39521394796204,
         "std_grs": 1.1131752177325005
     },
     {
-        "phenotype": "endometritis",
+        "phenotype": "Endometritis",
         "num_sample": 56,
-        "mean_grs": -24.137169978149075,
-        "std_grs": 0.8700079642364225
+        "mean_grs": -24.269377365525667,
+        "std_grs": 0.8302648579664438
     },
     {
-        "phenotype": "miscarriage",
+        "phenotype": "Miscarriage",
         "num_sample": 56,
         "mean_grs": -25.525435056706787,
         "std_grs": 5.942931390208937
     },
     {
-        "phenotype": "ovarian cancer",
+        "phenotype": "Ovarian Cancer",
         "num_sample": 56,
         "mean_grs": -4.670266191745341,
         "std_grs": 3.1444992039680235
     },
     {
-        "phenotype": "Cervical intraepithelial neoplasia",
+        "phenotype": "Cervical Intraepithelial Neoplasia",
         "num_sample": 56,
         "mean_grs": -9.634791871173912,
         "std_grs": 8.193960572236083
     },
     {
-        "phenotype": "preterm prelabor rupture of membranes (PPROM)",
+        "phenotype": "Preterm Prelabor Rupture of Membranes (PPROM)",
         "num_sample": 56,
         "mean_grs": -19.36756147179809,
         "std_grs": 4.8466490336768695
     },
     {
-        "phenotype": "dysmenorrhea(Menstrual pain)",
+        "phenotype": "Dysmenorrhea (Menstrual pain)",
         "num_sample": 56,
         "mean_grs": -16.742188185140837,
         "std_grs": 3.031364566160408
     },
     {
-        "phenotype": "adenomyosis",
+        "phenotype": "Adenomyosis",
         "num_sample": 56,
         "mean_grs": -31.561552593316776,
         "std_grs": 2.5029598533702995
     },
     {
-        "phenotype": "vaginal dryness",
+        "phenotype": "Vaginal Dryness",
         "num_sample": 56,
         "mean_grs": -11.201126833089186,
         "std_grs": 4.030630347242192
     },
     {
-        "phenotype": "gestational diabetes",
+        "phenotype": "Gestational Diabetes",
         "num_sample": 56,
         "mean_grs": -14.912156185282146,
         "std_grs": 1.5941795041685463
