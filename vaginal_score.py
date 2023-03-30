@@ -10,17 +10,17 @@ import matplotlib.pyplot as plt
 
 # Load the DB file
 # df_db : Data frame of accumulated Experimental result information - Abundance
-path_db = os.path.dirname(os.path.abspath(__file__)) + "/input/db_abundance.csv"
+path_db = os.path.abspath('') + "/input/db_abundance.csv"
 df_db = pd.read_csv(path_db)
 
 # Load the Experiment result file
 # df_exp : Data frame of Experimental result information - Abundance
-path_exp = os.path.dirname(os.path.abspath(__file__)) + "/input/experiment_result_abundance.csv"
+path_exp = os.path.abspath('') + "/input/experiment_result_abundance.csv"
 df_exp = pd.read_csv(path_exp)
 
 # Load the merged Valencia output file
 # df_valencia : Data frame of merged Valencia output
-path_valencia = os.path.dirname(os.path.abspath(__file__)) + "/input/VALENCIA_output_merged.csv"
+path_valencia = os.path.abspath('') + "/input/VALENCIA_output_merged.csv"
 df_valencia = pd.read_csv(path_valencia)
 
 # Insert data into DB - Merge the data frame df_db & df_exp
@@ -49,7 +49,7 @@ else:
 
 # Load the Phenotype-Microbiome file
 # df_beta : Data frame of of Phenotype-Microbiome information
-path_beta = os.path.dirname(os.path.abspath(__file__)) + "/input/phenotype_microbiome.xlsx"
+path_beta = os.path.abspath('') + "/input/phenotype_microbiome.xlsx"
 df_beta = pd.read_excel(path_beta)
 df_beta.rename(columns = {"Disease": "phenotype", "NCBI name": "ncbi_name", "MIrROR name": "microbiome", "Health sign": "beta", "subtract": "microbiome_subtract"}, inplace=True)
 df_beta = df_beta[["phenotype", "ncbi_name", "microbiome", "beta","microbiome_subtract"]]
@@ -153,7 +153,7 @@ for i in range(len(li_phenotype)):
 
 # Load the list of the grs statistics in the DB
 
-path_statistics = os.path.dirname(os.path.abspath(__file__)) + "/input/json_grs_statistics.json"
+path_statistics = os.path.abspath('') + "/input/json_grs_statistics.json"
 
 with open(path_statistics, "r") as f:
     json_grs_statistics = json.load(f)
@@ -194,7 +194,7 @@ df_probabilities = df_probabilities.set_index(keys=['sampleID'], inplace=False, 
 
 # Save the output file - Probabilities calculated by estimating population variance samples
 
-path_vaginal_probability_sample_estimation_output = os.path.dirname(os.path.abspath(__file__)) + "/output/vaginal_probability_sample_estimation.xlsx"
+path_vaginal_probability_sample_estimation_output = os.path.abspath('') + "/output/vaginal_probability_sample_estimation.xlsx"
 df_probabilities.to_excel(path_vaginal_probability_sample_estimation_output)
 
 print('Analysis Complete')       

@@ -44,8 +44,8 @@
     {
         "phenotype": "Adenomyosis",
         "num_sample": 56,
-        "mean_grs": -31.561552593316776,
-        "std_grs": 2.5029598533702995
+        "mean_grs": -29.79111905224439,
+        "std_grs": 3.000576228822867
     },
     {
         "phenotype": "Vaginal Dryness",
