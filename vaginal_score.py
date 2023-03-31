@@ -70,27 +70,27 @@ json_abundance = []
 for i in range(len(li_new_sample_name)):
     for j in range(len(li_phenotype_ncbi_name)):
         
-        condition_phen = (df_beta.phenotype == li_phenotype_ncbi_name[j][0]) & (df_beta.ncbi_name == li_phenotype_ncbi_name[j][1])
+        condition_phen = (df_beta.phenotype == li_phenotype_ncbi_name[j][0]) & (df_beta.ncbi_name == li_phenotype_ncbi_name[j][1]) & (df_beta.beta == 1) 
 
         abundance = 0 
-        for idx_beta, row_beta in df_beta[condition_phen].iterrows():
-             
-            if (row_beta['beta'] == 1) & (row_beta['microbiome'][:3] in ['s__', 'g__']):
+        for idx_beta, row_beta in df_beta[condition_phen].iterrows(): 
+            if row_beta['microbiome'][:3] in ['s__', 'g__']:
                 condition = (df_exp.taxa == row_beta['microbiome'])
                 if len(df_exp[condition]) > 0:
                     abundance += df_exp[condition][li_new_sample_name[i]].values[0]
+
+                    if (pd.isna(row_beta['microbiome_subtract']) is False):
+                        li_micro_sub = row_beta['microbiome_subtract'].split('\n')
+                        for micro_sub in li_micro_sub:
+                            condition_sub = (df_exp.taxa == micro_sub)
+                            if len(df_exp[condition_sub]) > 0:
+                                 abundance -= df_exp[condition_sub][li_new_sample_name[i]].values[0]
+                            
+                json_abundance.append({"sample_name" : li_new_sample_name[i], "phenotype" : li_phenotype_ncbi_name[j][0], "ncbi_name" : li_phenotype_ncbi_name[j][1], "abundance" : abundance})
                 
-            if (row_beta['beta'] == 1) & (pd.isna(row_beta['microbiome_subtract']) is False):
-                li_micro_sub = row_beta['microbiome_subtract'].split('\n')
-                    
-                for micro_sub in li_micro_sub:
-                    condition_sub = (df_exp.taxa == micro_sub)
-                    if len(df_exp[condition_sub]) > 0:
-                        abundance -= df_exp[condition_sub][li_new_sample_name[i]].values[0]
-     
-            
-        json_abundance.append({"sample_name" : li_new_sample_name[i], "phenotype" : li_phenotype_ncbi_name[j][0], "ncbi_name" : li_phenotype_ncbi_name[j][1], "abundance" : abundance})
 df_abundance = pd.DataFrame.from_dict(json_abundance)   
+
+df_abundance = df_abundance.drop_duplicates(['sample_name', 'phenotype', 'ncbi_name'], keep='last')
 
 df_top_five = pd.DataFrame(columns = ["sample_name", "phenotype", "ncbi_name","abundance"])
 
