@@ -162,7 +162,6 @@ df_statistics = pd.DataFrame.from_dict(json_grs_statistics)
     
     
 # Calculation - Z scroe & Probability
-# Probability Change - Negative phenotype
 # li_phenotype : Phenotype list 
 # li_new_sample_name : New Sample Name list
 
