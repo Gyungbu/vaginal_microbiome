@@ -20,8 +20,8 @@
     {
         "phenotype": "Endometritis",
         "num_sample": 91,
-        "mean_grs": -23.948816934035857,
-        "std_grs": 0.7668541733989167
+        "mean_grs": -24.182439554802016,
+        "std_grs": 0.7827579812643082
     },
     {
         "phenotype": "Gestational Diabetes",
@@ -56,7 +56,7 @@
     {
         "phenotype": "Vaginal Dryness",
         "num_sample": 91,
-        "mean_grs": -21.54504072388499,
-        "std_grs": 4.69185355087537
+        "mean_grs": -31.18044580197595,
+        "std_grs": 1.0679176990705297
     }
 ]
