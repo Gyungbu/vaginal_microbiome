@@ -124,7 +124,6 @@ for idx_beta, row_beta in df_beta.iterrows():
 # Calculate the MRS (Microbiome Risk Score)
 # li_phenotype : Phenotype list 
 # df_mrs : Data frame of MRS corresponding to specific phenotype and sample
-
 df_mrs = pd.DataFrame(index = li_new_sample_name, columns = li_phenotype)
 df_mrs = df_mrs.fillna(0) 
 
@@ -155,20 +154,24 @@ path_mrs_db = os.path.abspath('') + "/input/vaginal_mrs.xlsx"
 df_mrs_db = pd.read_excel(path_mrs_db, index_col=0)        
 
 # Calculation - Percentile Rank
+# Create an empty data frame with the same index and columns as the df_mrs data frame
 df_percentile_rank = pd.DataFrame(index = li_new_sample_name, columns = li_phenotype)
 
+# Loop through all samples and phenotypes and calculate the percentile rank
 for i in range(len(li_new_sample_name)):
     for j in range(len(li_phenotype)):
         df_percentile_rank.loc[li_new_sample_name[i], li_phenotype[j]] = (percentileofscore(list(df_mrs_db[li_phenotype[j]]), df_mrs.loc[li_new_sample_name[i], li_phenotype[j] ], kind='mean')).round(1)
 
 # Outliers
+# Replace percentile ranks that are less than or equal to 5 with 5, and those that are greater than or equal to 95 with 95
 for i in range(len(li_phenotype)):
     df_percentile_rank.loc[df_percentile_rank[li_phenotype[i]]<=5, li_phenotype[i]] = 5.0
     df_percentile_rank.loc[df_percentile_rank[li_phenotype[i]]>=95, li_phenotype[i]] = 95.0
 
+# Replace missing values with the string 'None'    
 df_percentile_rank = df_percentile_rank.fillna('None')
         
-# Merge the valencia output file & df_probabilities
+# Merge the valencia output file & df_percentile_rank
 
 df_percentile_rank = pd.merge(df_percentile_rank, df_valencia[['sampleID', 'subCST', 'score', 'CST']], how='left',left_index=True, right_on = 'sampleID') 
 df_percentile_rank = df_percentile_rank.set_index(keys=['sampleID'], inplace=False, drop=True)    
