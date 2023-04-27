@@ -160,7 +160,7 @@ df_percentile_rank = pd.DataFrame(index = li_new_sample_name, columns = li_pheno
 # Loop through all samples and phenotypes and calculate the percentile rank
 for i in range(len(li_new_sample_name)):
     for j in range(len(li_phenotype)):
-        df_percentile_rank.loc[li_new_sample_name[i], li_phenotype[j]] = (percentileofscore(list(df_mrs_db[li_phenotype[j]]), df_mrs.loc[li_new_sample_name[i], li_phenotype[j] ], kind='mean')).round(1)
+        df_percentile_rank.loc[li_new_sample_name[i], li_phenotype[j]] = (percentileofscore(list(df_mrs_db[li_phenotype[j]]), df_mrs.loc[li_new_sample_name[i], li_phenotype[j]], kind='mean')).round(1)
 
 # Outliers
 # Replace percentile ranks that are less than or equal to 5 with 5, and those that are greater than or equal to 95 with 95
