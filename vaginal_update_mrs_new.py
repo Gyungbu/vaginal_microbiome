@@ -64,6 +64,13 @@ class VaginalDiseaseUpdateMRS:
     # df_db : Data frame of accumulated Experimental result information - Abundance
     # df_exp : Data frame of Experimental result information - Abundance    
     def ReadDB(self):        
+        """
+        Read the data.
+
+        Returns:
+        A tuple (success, message), where success is a boolean indicating whether the operation was successful,
+        and message is a string containing a success or error message.
+        """  
         rv = True
         rvmsg = "Success"
         
@@ -117,6 +124,13 @@ class VaginalDiseaseUpdateMRS:
 
 
     def SubtractAbundance(self): 
+        """
+        Subtract the abundance for each microbiome in the df_exp.
+
+        Returns:
+        A tuple (success, message), where success is a boolean indicating whether the operation was successful,
+        and message is a string containing a success or error message.
+        """ 
         rv = True
         rvmsg = "Success"
         
@@ -157,6 +171,13 @@ class VaginalDiseaseUpdateMRS:
         return rv, rvmsg
 
     def CalculateMRS(self): 
+        """
+        Calculate the MRS (Microbiome Risk Score).
+
+        Returns:
+        A tuple (success, message), where success is a boolean indicating whether the operation was successful,
+        and message is a string containing a success or error message.
+        """ 
         rv = True
         rvmsg = "Success"
         
@@ -191,6 +212,13 @@ class VaginalDiseaseUpdateMRS:
 
     
     def UpdateMRS(self): 
+        """
+        Save the MRS data as an Excel file & Save the histogram as an png file.
+
+        Returns:
+        A tuple (success, message), where success is a boolean indicating whether the operation was successful,
+        and message is a string containing a success or error message.
+        """ 
         rv = True
         rvmsg = "Success"
         

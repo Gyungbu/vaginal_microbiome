@@ -56,7 +56,14 @@ class VaginalDisease:
     # df_beta : Data frame of of Phenotype-Microbiome information
     # df_db : Data frame of accumulated Experimental result information - Abundance
     # df_exp : Data frame of Experimental result information - Abundance    
-    def ReadDB(self):        
+    def ReadDB(self):   
+        """
+        Read the data.
+
+        Returns:
+        A tuple (success, message), where success is a boolean indicating whether the operation was successful,
+        and message is a string containing a success or error message.
+        """            
         rv = True
         rvmsg = "Success"
         
@@ -79,8 +86,7 @@ class VaginalDisease:
             sys.exit()            
         return rv, rvmsg
 
-    def InsertDataDB(self):
-        
+    def InsertDataDB(self):      
         """
         Inserts data into the database by merging the data frames df_db and df_exp.
 
@@ -108,7 +114,14 @@ class VaginalDisease:
         return rv, rvmsg
     
     
-    def BeneficialMicrobiome(self):                  
+    def BeneficialMicrobiome(self):     
+        """
+        Save the list of Beneficial Microbiome as an Excel file.
+
+        Returns:
+        A tuple (success, message), where success is a boolean indicating whether the operation was successful,
+        and message is a string containing a success or error message.
+        """          
         rv = True
         rvmsg = "Success"
         
@@ -171,6 +184,13 @@ class VaginalDisease:
         return rv, rvmsg 
     
     def HarmfulMicrobiome(self):
+        """
+        Save the list of Harmful Microbiome as an Excel file.
+
+        Returns:
+        A tuple (success, message), where success is a boolean indicating whether the operation was successful,
+        and message is a string containing a success or error message.
+        """  
         rv = True
         rvmsg = "Success"
         
@@ -223,6 +243,13 @@ class VaginalDisease:
         return rv, rvmsg     
     
     def SubtractAbundance(self): 
+        """
+        Subtract the abundance for each microbiome in the df_exp.
+
+        Returns:
+        A tuple (success, message), where success is a boolean indicating whether the operation was successful,
+        and message is a string containing a success or error message.
+        """          
         rv = True
         rvmsg = "Success"
         
@@ -263,6 +290,13 @@ class VaginalDisease:
         return rv, rvmsg
 
     def CalculateMRS(self): 
+        """
+        Calculate the MRS (Microbiome Risk Score).
+
+        Returns:
+        A tuple (success, message), where success is a boolean indicating whether the operation was successful,
+        and message is a string containing a success or error message.
+        """ 
         rv = True
         rvmsg = "Success"
         
@@ -297,6 +331,13 @@ class VaginalDisease:
 
     
     def CalculatePercentileRank(self): 
+        """
+        Calculate the Percentile Rank and Save the Percentile Rank data as an Excel file.
+
+        Returns:
+        A tuple (success, message), where success is a boolean indicating whether the operation was successful,
+        and message is a string containing a success or error message.
+        """         
         rv = True
         rvmsg = "Success"
         
