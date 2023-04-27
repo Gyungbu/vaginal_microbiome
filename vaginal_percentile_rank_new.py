@@ -108,8 +108,7 @@ class VaginalDisease:
         return rv, rvmsg
     
     
-    def BeneficialMicrobiome(self):
-                   
+    def BeneficialMicrobiome(self):                  
         rv = True
         rvmsg = "Success"
         
@@ -218,7 +217,7 @@ class VaginalDisease:
             print(str(e))
             rv = False
             rvmsg = str(e)
-            print("Error has occurred in the TopFive process")
+            print("Error has occurred in the HarmfulMicrobiome process")
             sys.exit()
     
         return rv, rvmsg     
