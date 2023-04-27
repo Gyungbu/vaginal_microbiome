@@ -27,7 +27,6 @@ class VaginalDisease:
         
         curdir = os.path.abspath('')
         self.path_beta = f"{curdir}/input/phenotype_microbiome.xlsx"
-        self.path_db = f"{curdir}/input/db_abundance.csv"
         self.path_mrs_db = f"{curdir}/input/vaginal_mrs.xlsx"  
         self.path_vaginal_percentile_rank_output = f"{curdir}/output/vaginal_percentile_rank.xlsx"
         self.path_valencia = f"{curdir}/input/VALENCIA_output_merged.csv"
@@ -35,10 +34,8 @@ class VaginalDisease:
         self.path_beneficial = f"{curdir}/output/beneficial.xlsx"    
         
         self.df_beta = None
-        self.df_db = None
         self.df_exp = None
         self.df_mrs = None
-        self.df_db_rev = None       
         self.df_mrs_db = None        
         self.df_percentile_rank = None
         self.df_abundance = None
@@ -69,7 +66,6 @@ class VaginalDisease:
         
         try:       
             self.df_beta = pd.read_excel(self.path_beta)
-            self.df_db = pd.read_csv(self.path_db)
             self.df_exp = pd.read_csv(self.path_exp)
             self.df_mrs_db = pd.read_excel(self.path_mrs_db, index_col=0) 
             self.df_valencia = pd.read_csv(self.path_valencia)
@@ -86,34 +82,7 @@ class VaginalDisease:
             sys.exit()            
         return rv, rvmsg
 
-    def InsertDataDB(self):      
-        """
-        Inserts data into the database by merging the data frames df_db and df_exp.
 
-        Returns:
-        A tuple (success, message), where success is a boolean indicating whether the operation was successful,
-        and message is a string containing a success or error message.
-        """        
-        rv = True
-        rvmsg = "Success"
-        
-        try: 
-            self.df_db = pd.merge(self.df_db, self.df_exp, how='outer',on='taxa', suffixes=['', '_right']) 
-            self.df_db = self.df_db.fillna(0)
-            self.df_db = self.df_db.filter(regex='^(?!.*_right).*') # Eliminate duplicate columns
-                    
-            self.df_db_rev = self.df_db.set_index(keys=['taxa'], inplace=False, drop=True)    
-            self.df_db_rev.to_csv(self.path_db)
-
-        except Exception as e:
-            print(str(e))
-            rv = False
-            rvmsg = str(e)
-            print("Error has occurred in the InsertDataDB process")
-            sys.exit()
-        return rv, rvmsg
-    
-    
     def BeneficialMicrobiome(self):     
         """
         Save the list of Beneficial Microbiome as an Excel file.
@@ -255,9 +224,8 @@ class VaginalDisease:
         
         try: 
             # Delete the diversity, observed rows
-            if (list(self.df_exp['taxa'][0:2]) == ['diversity', 'observed']) & (list(self.df_db['taxa'][0:2]) == ['diversity', 'observed']):
+            if (list(self.df_exp['taxa'][0:2]) == ['diversity', 'observed']):
                 self.df_exp = self.df_exp.iloc[2:,:]
-                self.df_db = self.df_db.iloc[2:,:]
             
             # li_new_sample_name : Sample name list 
             # li_phenotype : Phenotype list 
@@ -386,7 +354,6 @@ if __name__ == '__main__':
     
     vaginal = VaginalDisease(path_exp)
     vaginal.ReadDB()
-    vaginal.InsertDataDB()
     vaginal.BeneficialMicrobiome()    
     vaginal.HarmfulMicrobiome() 
     vaginal.SubtractAbundance()
