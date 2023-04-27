@@ -51,7 +51,6 @@ class VaginalDisease:
     
     # Load the DB file
     # df_beta : Data frame of of Phenotype-Microbiome information
-    # df_db : Data frame of accumulated Experimental result information - Abundance
     # df_exp : Data frame of Experimental result information - Abundance    
     def ReadDB(self):   
         """
@@ -81,7 +80,52 @@ class VaginalDisease:
             print("Error has occurred in the ReadDB process")
             sys.exit()            
         return rv, rvmsg
+    
+    def SubtractAbundance(self): 
+        """
+        Subtract the abundance for each microbiome in the df_exp.
 
+        Returns:
+        A tuple (success, message), where success is a boolean indicating whether the operation was successful,
+        and message is a string containing a success or error message.
+        """          
+        rv = True
+        rvmsg = "Success"
+        
+        try: 
+            # Delete the diversity, observed rows
+            if (list(self.df_exp['taxa'][0:2]) == ['diversity', 'observed']):
+                self.df_exp = self.df_exp.iloc[2:,:]
+            
+            # li_new_sample_name : Sample name list 
+            # li_phenotype : Phenotype list 
+            self.li_new_sample_name = list(self.df_exp.columns)[1:]  
+            self.li_phenotype = list(dict.fromkeys(self.df_beta['phenotype']))
+            
+            # Subtract the abundance - df_exp
+            for idx_beta, row_beta in self.df_beta.iterrows(): 
+                li_micro_sub = []
+
+                if pd.isna(row_beta['microbiome_subtract']) is False:
+                    li_micro_sub = row_beta['microbiome_subtract'].split('\n')
+
+                    for micro_sub in li_micro_sub:
+                        condition = (self.df_exp.taxa == row_beta['microbiome'])
+                        condition_sub = (self.df_exp.taxa == micro_sub)
+
+                        if len(self.df_exp[condition_sub]) > 0:
+
+                            for sample_name in self.li_new_sample_name:
+                                self.df_exp.loc[condition, sample_name] -= self.df_exp[condition_sub][sample_name].values[0]                
+           
+        except Exception as e:
+            print(str(e))
+            rv = False
+            rvmsg = str(e)
+            print("Check the diversity & observed rows in the exp file or db file")
+            sys.exit()
+    
+        return rv, rvmsg
 
     def BeneficialMicrobiome(self):     
         """
@@ -117,13 +161,6 @@ class VaginalDisease:
                         condition = (self.df_exp.taxa == row_beta['microbiome'])
                         if len(self.df_exp[condition]) > 0:
                             abundance += self.df_exp[condition][self.li_new_sample_name[i]].values[0]
-
-                            if (pd.isna(row_beta['microbiome_subtract']) is False):
-                                li_micro_sub = row_beta['microbiome_subtract'].split('\n')
-                                for micro_sub in li_micro_sub:
-                                    condition_sub = (self.df_exp.taxa == micro_sub)
-                                    if len(self.df_exp[condition_sub]) > 0:
-                                         abundance -= self.df_exp[condition_sub][self.li_new_sample_name[i]].values[0]
 
                         json_abundance.append({"sample_name" : self.li_new_sample_name[i], "phenotype" : self.li_phenotype_ncbi_name[j][0], "ncbi_name" : self.li_phenotype_ncbi_name[j][1], "abundance" : abundance})
 
@@ -177,13 +214,6 @@ class VaginalDisease:
                         if len(self.df_exp[condition]) > 0:
                             abundance += self.df_exp[condition][self.li_new_sample_name[i]].values[0]
 
-                            if (pd.isna(row_beta['microbiome_subtract']) is False):
-                                li_micro_sub = row_beta['microbiome_subtract'].split('\n')
-                                for micro_sub in li_micro_sub:
-                                    condition_sub = (self.df_exp.taxa == micro_sub)
-                                    if len(self.df_exp[condition_sub]) > 0:
-                                         abundance -= self.df_exp[condition_sub][self.li_new_sample_name[i]].values[0]
-
                         json_abundance.append({"sample_name" : self.li_new_sample_name[i], "phenotype" : self.li_phenotype_ncbi_name[j][0], "ncbi_name" : self.li_phenotype_ncbi_name[j][1], "abundance" : abundance})
 
             self.df_abundance = pd.DataFrame.from_dict(json_abundance)   
@@ -209,54 +239,7 @@ class VaginalDisease:
             print("Error has occurred in the HarmfulMicrobiome process")
             sys.exit()
     
-        return rv, rvmsg     
-    
-    def SubtractAbundance(self): 
-        """
-        Subtract the abundance for each microbiome in the df_exp.
-
-        Returns:
-        A tuple (success, message), where success is a boolean indicating whether the operation was successful,
-        and message is a string containing a success or error message.
-        """          
-        rv = True
-        rvmsg = "Success"
-        
-        try: 
-            # Delete the diversity, observed rows
-            if (list(self.df_exp['taxa'][0:2]) == ['diversity', 'observed']):
-                self.df_exp = self.df_exp.iloc[2:,:]
-            
-            # li_new_sample_name : Sample name list 
-            # li_phenotype : Phenotype list 
-            self.li_new_sample_name = list(self.df_exp.columns)[1:]  
-            self.li_phenotype = list(dict.fromkeys(self.df_beta['phenotype']))
-            
-            # Subtract the abundance - df_exp
-            for idx_beta, row_beta in self.df_beta.iterrows(): 
-                li_micro_sub = []
-
-                if pd.isna(row_beta['microbiome_subtract']) is False:
-                    li_micro_sub = row_beta['microbiome_subtract'].split('\n')
-
-                    for micro_sub in li_micro_sub:
-                        condition = (self.df_exp.taxa == row_beta['microbiome'])
-                        condition_sub = (self.df_exp.taxa == micro_sub)
-
-                        if len(self.df_exp[condition_sub]) > 0:
-
-                            for sample_name in self.li_new_sample_name:
-                                self.df_exp.loc[condition, sample_name] -= self.df_exp[condition_sub][sample_name].values[0]                
-           
-        except Exception as e:
-            print(str(e))
-            rv = False
-            rvmsg = str(e)
-            print("Check the diversity & observed rows in the exp file or db file")
-            sys.exit()
-    
-        return rv, rvmsg
-
+        return rv, rvmsg         
     def CalculateMRS(self): 
         """
         Calculate the MRS (Microbiome Risk Score).
@@ -354,9 +337,9 @@ if __name__ == '__main__':
     
     vaginal = VaginalDisease(path_exp)
     vaginal.ReadDB()
+    vaginal.SubtractAbundance()
     vaginal.BeneficialMicrobiome()    
     vaginal.HarmfulMicrobiome() 
-    vaginal.SubtractAbundance()
     vaginal.CalculateMRS()    
     vaginal.CalculatePercentileRank()
     
