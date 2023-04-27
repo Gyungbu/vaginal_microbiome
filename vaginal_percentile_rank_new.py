@@ -101,7 +101,7 @@ class VaginalDisease:
             # li_phenotype : Phenotype list 
             self.li_new_sample_name = list(self.df_exp.columns)[1:]  
             self.li_phenotype = list(dict.fromkeys(self.df_beta['phenotype']))
-            
+                      
             # Subtract the abundance - df_exp
             for idx_beta, row_beta in self.df_beta.iterrows(): 
                 li_micro_sub = []
@@ -138,16 +138,12 @@ class VaginalDisease:
         rv = True
         rvmsg = "Success"
         
-        try:    
-            # li_new_sample_name : Sample name list 
-            # li_phenotype : Phenotype list 
-            self.li_new_sample_name = list(self.df_exp.columns)[1:]  
-            self.li_phenotype = list(dict.fromkeys(self.df_beta['phenotype']))            
+        try:              
             
             self.li_phenotype_ncbi_name = []
             for idx, row in self.df_beta.iterrows(): 
                 if [row['phenotype'], row['ncbi_name']] not in self.li_phenotype_ncbi_name:
-                    self.li_phenotype_ncbi_name.append([row['phenotype'], row['ncbi_name']])    
+                    self.li_phenotype_ncbi_name.append([row['phenotype'], row['ncbi_name']]) 
                     
             json_abundance = []
 
