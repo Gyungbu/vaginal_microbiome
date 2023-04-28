@@ -38,10 +38,8 @@ class VaginalDisease:
         self.df_mrs = None
         self.df_mrs_db = None        
         self.df_percentile_rank = None
-        self.df_abundance = None
         self.df_beneficial = None
         self.df_harmful = None        
-        self.df_new = None
         self.df_valencia = None
 
         self.li_new_sample_name = None
@@ -160,18 +158,18 @@ class VaginalDisease:
 
                         json_abundance.append({"sample_name" : self.li_new_sample_name[i], "phenotype" : self.li_phenotype_ncbi_name[j][0], "ncbi_name" : self.li_phenotype_ncbi_name[j][1], "abundance" : abundance})
 
-            self.df_abundance = pd.DataFrame.from_dict(json_abundance)   
+            df_abundance = pd.DataFrame.from_dict(json_abundance)   
 
-            self.df_abundance = self.df_abundance.drop_duplicates(['sample_name', 'phenotype', 'ncbi_name'], keep='last')
+            df_abundance = df_abundance.drop_duplicates(['sample_name', 'phenotype', 'ncbi_name'], keep='last')
 
             self.df_beneficial = pd.DataFrame(columns = ["sample_name", "phenotype", "ncbi_name","abundance"])
 
             for i in range(len(self.li_new_sample_name)):
                 for j in range(len(self.li_phenotype)):
 
-                    condition = (self.df_abundance.sample_name == self.li_new_sample_name[i]) & (self.df_abundance.phenotype == self.li_phenotype[j])
-                    self.df_new = self.df_abundance[condition].sort_values(by=['abundance'], ascending=False)
-                    self.df_beneficial = pd.concat([self.df_beneficial,self.df_new])
+                    condition = (df_abundance.sample_name == self.li_new_sample_name[i]) & (df_abundance.phenotype == self.li_phenotype[j])
+                    df_new = df_abundance[condition].sort_values(by=['abundance'], ascending=False)
+                    self.df_beneficial = pd.concat([self.df_beneficial,df_new])
 
             self.df_beneficial = self.df_beneficial.set_index(keys=['sample_name'], inplace=False, drop=True)           
             self.df_beneficial.to_excel(self.path_beneficial)    
@@ -212,18 +210,18 @@ class VaginalDisease:
 
                         json_abundance.append({"sample_name" : self.li_new_sample_name[i], "phenotype" : self.li_phenotype_ncbi_name[j][0], "ncbi_name" : self.li_phenotype_ncbi_name[j][1], "abundance" : abundance})
 
-            self.df_abundance = pd.DataFrame.from_dict(json_abundance)   
+            df_abundance = pd.DataFrame.from_dict(json_abundance)   
 
-            self.df_abundance = self.df_abundance.drop_duplicates(['sample_name', 'phenotype', 'ncbi_name'], keep='last')
+            df_abundance = df_abundance.drop_duplicates(['sample_name', 'phenotype', 'ncbi_name'], keep='last')
 
             self.df_harmful = pd.DataFrame(columns = ["sample_name", "phenotype", "ncbi_name","abundance"])
 
             for i in range(len(self.li_new_sample_name)):
                 for j in range(len(self.li_phenotype)):
 
-                    condition = (self.df_abundance.sample_name == self.li_new_sample_name[i]) & (self.df_abundance.phenotype == self.li_phenotype[j])
-                    self.df_new = self.df_abundance[condition].sort_values(by=['abundance'], ascending=False)
-                    self.df_harmful = pd.concat([self.df_harmful,self.df_new])
+                    condition = (df_abundance.sample_name == self.li_new_sample_name[i]) & (df_abundance.phenotype == self.li_phenotype[j])
+                    df_new = df_abundance[condition].sort_values(by=['abundance'], ascending=False)
+                    self.df_harmful = pd.concat([self.df_harmful,df_new])
 
             self.df_harmful = self.df_harmful.set_index(keys=['sample_name'], inplace=False, drop=True)           
             self.df_harmful.to_excel(self.path_harmful)    
