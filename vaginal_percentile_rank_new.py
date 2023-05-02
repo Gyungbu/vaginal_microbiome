@@ -9,6 +9,12 @@ import math
 import matplotlib.pyplot as plt
 import numpy as np
 
+# Check if the script is being called with the correct arguments
+if len(sys.argv) < 2:
+    print("Usage: python Script.py <path_exp>")
+    print("Example: python vaginal_percentile_rank_new.py \"/home/kbkim/vaginal_microbiome/input/experiment_result_abundance.csv\"")
+    sys.exit(1)
+    
 # path_exp : Path of Merged Proportion file to analyze
 path_exp = sys.argv[1] 
 
