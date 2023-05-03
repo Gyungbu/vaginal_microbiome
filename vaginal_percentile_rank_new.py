@@ -38,6 +38,7 @@ class VaginalDisease:
         self.path_valencia = f"{curdir}/input/VALENCIA_output_merged.csv"
         self.path_harmful = f"{curdir}/output/harmful.xlsx"
         self.path_beneficial = f"{curdir}/output/beneficial.xlsx"    
+        self.path_db = f"{curdir}/input/db_abundance.csv"        
         
         self.df_beta = None
         self.df_exp = None
@@ -47,6 +48,7 @@ class VaginalDisease:
         self.df_beneficial = None
         self.df_harmful = None        
         self.df_valencia = None
+        self.df_db = None
 
         self.li_new_sample_name = None
         self.li_phenotype = None
@@ -72,6 +74,7 @@ class VaginalDisease:
             self.df_exp = pd.read_csv(self.path_exp)
             self.df_mrs_db = pd.read_excel(self.path_mrs_db, index_col=0) 
             self.df_valencia = pd.read_csv(self.path_valencia)
+            self.df_db = pd.read_csv(self.path_db)
 
             self.df_beta.rename(columns = {"Disease": "phenotype", "NCBI name": "ncbi_name", "MIrROR name": "microbiome", "Health sign": "beta", "subtract": "microbiome_subtract"}, inplace=True)
             self.df_beta = self.df_beta[["phenotype", "ncbi_name", "microbiome", "beta", "microbiome_subtract"]]
@@ -98,8 +101,9 @@ class VaginalDisease:
         
         try: 
             # Delete the diversity, observed rows
-            if (list(self.df_exp['taxa'][0:2]) == ['diversity', 'observed']):
+            if (list(self.df_exp['taxa'][0:2]) == ['diversity', 'observed']) & (list(self.df_db['taxa'][0:2]) == ['diversity', 'observed']):
                 self.df_exp = self.df_exp.iloc[2:,:]
+                self.df_db = self.df_db.iloc[2:,:]
             
             # li_new_sample_name : Sample name list 
             # li_phenotype : Phenotype list 
@@ -114,13 +118,21 @@ class VaginalDisease:
                     li_micro_sub = row_beta['microbiome_subtract'].split('\n')
 
                     for micro_sub in li_micro_sub:
-                        condition = (self.df_exp.taxa == row_beta['microbiome'])
-                        condition_sub = (self.df_exp.taxa == micro_sub)
-
-                        if len(self.df_exp[condition_sub]) > 0:
+                        condition_exp = (self.df_exp.taxa == row_beta['microbiome'])
+                        condition_exp_sub = (self.df_exp.taxa == micro_sub)
+                        
+                        condition_db = (self.df_db.taxa == row_beta['microbiome'])
+                        condition_db_sub = (self.df_db.taxa == micro_sub)            
+                        
+                        if len(self.df_db[condition_db_sub]) > 0:
 
                             for sample_name in self.li_new_sample_name:
-                                self.df_exp.loc[condition, sample_name] -= self.df_exp[condition_sub][sample_name].values[0]                
+                                self.df_db.loc[condition_db, sample_name] -= self.df_db[condition_db_sub][sample_name].values[0]      
+                                
+                        if len(self.df_exp[condition_exp_sub]) > 0:
+
+                            for sample_name in self.li_new_sample_name:
+                                self.df_exp.loc[condition_exp, sample_name] -= self.df_exp[condition_exp_sub][sample_name].values[0]                
            
         except Exception as e:
             print(str(e))
@@ -157,18 +169,21 @@ class VaginalDisease:
                     condition_phen = (self.df_beta.phenotype == self.li_phenotype_ncbi_name[j][0]) & (self.df_beta.ncbi_name == self.li_phenotype_ncbi_name[j][1]) & (self.df_beta.beta == -1) 
 
                     abundance = 0 
+                    abundance_mean = 0
                     for idx_beta, row_beta in self.df_beta[condition_phen].iterrows(): 
                         condition = (self.df_exp.taxa == row_beta['microbiome'])
                         if len(self.df_exp[condition]) > 0:
                             abundance += self.df_exp[condition][self.li_new_sample_name[i]].values[0]
+                        if len(self.df_db[condition]) > 0:
+                            abundance_mean += self.df_db[condition].mean(axis=1).values[0]
 
-                        json_abundance.append({"sample_name" : self.li_new_sample_name[i], "phenotype" : self.li_phenotype_ncbi_name[j][0], "ncbi_name" : self.li_phenotype_ncbi_name[j][1], "abundance" : abundance})
+                        json_abundance.append({"sample_name" : self.li_new_sample_name[i], "phenotype" : self.li_phenotype_ncbi_name[j][0], "ncbi_name" : self.li_phenotype_ncbi_name[j][1], "abundance" : abundance, "abundance_mean" : abundance_mean})
 
             df_abundance = pd.DataFrame.from_dict(json_abundance)   
 
             df_abundance = df_abundance.drop_duplicates(['sample_name', 'phenotype', 'ncbi_name'], keep='last')
 
-            self.df_beneficial = pd.DataFrame(columns = ["sample_name", "phenotype", "ncbi_name","abundance"])
+            self.df_beneficial = pd.DataFrame(columns = ["sample_name", "phenotype", "ncbi_name", "abundance", "abundance_mean"])
 
             for i in range(len(self.li_new_sample_name)):
                 for j in range(len(self.li_phenotype)):
@@ -209,18 +224,21 @@ class VaginalDisease:
                     condition_phen = (self.df_beta.phenotype == self.li_phenotype_ncbi_name[j][0]) & (self.df_beta.ncbi_name == self.li_phenotype_ncbi_name[j][1]) & (self.df_beta.beta == 1) 
 
                     abundance = 0 
+                    abundance_mean = 0
                     for idx_beta, row_beta in self.df_beta[condition_phen].iterrows(): 
                         condition = (self.df_exp.taxa == row_beta['microbiome'])
                         if len(self.df_exp[condition]) > 0:
                             abundance += self.df_exp[condition][self.li_new_sample_name[i]].values[0]
+                        if len(self.df_db[condition]) > 0:                            
+                            abundance_mean += self.df_db[condition].mean(axis=1).values[0]
 
-                        json_abundance.append({"sample_name" : self.li_new_sample_name[i], "phenotype" : self.li_phenotype_ncbi_name[j][0], "ncbi_name" : self.li_phenotype_ncbi_name[j][1], "abundance" : abundance})
+                        json_abundance.append({"sample_name" : self.li_new_sample_name[i], "phenotype" : self.li_phenotype_ncbi_name[j][0], "ncbi_name" : self.li_phenotype_ncbi_name[j][1], "abundance" : abundance, "abundance_mean" : abundance_mean})
 
             df_abundance = pd.DataFrame.from_dict(json_abundance)   
 
             df_abundance = df_abundance.drop_duplicates(['sample_name', 'phenotype', 'ncbi_name'], keep='last')
 
-            self.df_harmful = pd.DataFrame(columns = ["sample_name", "phenotype", "ncbi_name","abundance"])
+            self.df_harmful = pd.DataFrame(columns = ["sample_name", "phenotype", "ncbi_name", "abundance", "abundance_mean"])
 
             for i in range(len(self.li_new_sample_name)):
                 for j in range(len(self.li_phenotype)):
@@ -239,7 +257,8 @@ class VaginalDisease:
             print("Error has occurred in the HarmfulMicrobiome process")
             sys.exit()
     
-        return rv, rvmsg         
+        return rv, rvmsg     
+    
     def CalculateMRS(self): 
         """
         Calculate the MRS (Microbiome Risk Score).
