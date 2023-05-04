@@ -171,11 +171,14 @@ class VaginalDisease:
                     abundance = 0 
                     abundance_mean = 0
                     for idx_beta, row_beta in self.df_beta[condition_phen].iterrows(): 
-                        condition = (self.df_exp.taxa == row_beta['microbiome'])
-                        if len(self.df_exp[condition]) > 0:
-                            abundance += self.df_exp[condition][self.li_new_sample_name[i]].values[0]
-                        if len(self.df_db[condition]) > 0:
-                            abundance_mean += self.df_db[condition].mean(axis=1).values[0]
+                        condition_exp = (self.df_exp.taxa == row_beta['microbiome'])
+                        condition_db = (self.df_db.taxa == row_beta['microbiome'])
+                        
+                        if len(self.df_exp[condition_exp]) > 0:
+                            abundance += self.df_exp[condition_exp][self.li_new_sample_name[i]].values[0]
+                            
+                        if len(self.df_db[condition_db]) > 0:
+                            abundance_mean += self.df_db[condition_db].mean(axis=1, numeric_only=True).values[0]
 
                         json_abundance.append({"sample_name" : self.li_new_sample_name[i], "phenotype" : self.li_phenotype_ncbi_name[j][0], "ncbi_name" : self.li_phenotype_ncbi_name[j][1], "abundance" : abundance, "abundance_mean" : abundance_mean})
 
@@ -226,11 +229,14 @@ class VaginalDisease:
                     abundance = 0 
                     abundance_mean = 0
                     for idx_beta, row_beta in self.df_beta[condition_phen].iterrows(): 
-                        condition = (self.df_exp.taxa == row_beta['microbiome'])
-                        if len(self.df_exp[condition]) > 0:
-                            abundance += self.df_exp[condition][self.li_new_sample_name[i]].values[0]
-                        if len(self.df_db[condition]) > 0:                            
-                            abundance_mean += self.df_db[condition].mean(axis=1).values[0]
+                        condition_exp = (self.df_exp.taxa == row_beta['microbiome'])
+                        condition_db = (self.df_db.taxa == row_beta['microbiome'])
+                        
+                        if len(self.df_exp[condition_exp]) > 0:
+                            abundance += self.df_exp[condition_exp][self.li_new_sample_name[i]].values[0]
+                            
+                        if len(self.df_db[condition_db]) > 0:
+                            abundance_mean += self.df_db[condition_db].mean(axis=1, numeric_only=True).values[0]
 
                         json_abundance.append({"sample_name" : self.li_new_sample_name[i], "phenotype" : self.li_phenotype_ncbi_name[j][0], "ncbi_name" : self.li_phenotype_ncbi_name[j][1], "abundance" : abundance, "abundance_mean" : abundance_mean})
 
