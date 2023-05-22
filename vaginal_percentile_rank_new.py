@@ -134,7 +134,7 @@ class VaginalDisease:
                         if len(self.df_exp[condition_exp_sub]) > 0:
 
                             for new_sample_name in self.li_new_sample_name:
-                                self.df_exp.loc[condition_exp, sample_name] -= self.df_exp[condition_exp_sub][new_sample_name].values[0]                
+                                self.df_exp.loc[condition_exp, new_sample_name] -= self.df_exp[condition_exp_sub][new_sample_name].values[0]                
            
         except Exception as e:
             print(str(e))
