@@ -109,7 +109,7 @@ class VaginalDisease:
             # li_new_sample_name : Sample name list 
             # li_phenotype : Phenotype list 
             self.li_new_sample_name = list(self.df_exp.columns)[1:]  
-            self.li_sample_name = list(self.df_exp.columns)[1:]  
+            self.li_sample_name = list(self.df_db.columns)[1:]  
             self.li_phenotype = list(dict.fromkeys(self.df_beta['phenotype']))
                       
             # Subtract the abundance - df_exp
