@@ -51,6 +51,7 @@ class VaginalDisease:
         self.df_db = None
 
         self.li_new_sample_name = None
+        self.li_sample_name = None
         self.li_phenotype = None
         self.li_phenotype_ncbi_name = None
 
@@ -108,6 +109,7 @@ class VaginalDisease:
             # li_new_sample_name : Sample name list 
             # li_phenotype : Phenotype list 
             self.li_new_sample_name = list(self.df_exp.columns)[1:]  
+            self.li_sample_name = list(self.df_exp.columns)[1:]  
             self.li_phenotype = list(dict.fromkeys(self.df_beta['phenotype']))
                       
             # Subtract the abundance - df_exp
@@ -126,13 +128,13 @@ class VaginalDisease:
                         
                         if len(self.df_db[condition_db_sub]) > 0:
 
-                            for sample_name in self.li_new_sample_name:
+                            for sample_name in self.li_sample_name:
                                 self.df_db.loc[condition_db, sample_name] -= self.df_db[condition_db_sub][sample_name].values[0]      
                                 
                         if len(self.df_exp[condition_exp_sub]) > 0:
 
-                            for sample_name in self.li_new_sample_name:
-                                self.df_exp.loc[condition_exp, sample_name] -= self.df_exp[condition_exp_sub][sample_name].values[0]                
+                            for new_sample_name in self.li_new_sample_name:
+                                self.df_exp.loc[condition_exp, sample_name] -= self.df_exp[condition_exp_sub][new_sample_name].values[0]                
            
         except Exception as e:
             print(str(e))
