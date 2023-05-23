@@ -194,7 +194,7 @@ class VaginalDisease:
                 for j in range(len(self.li_phenotype)):
 
                     condition = (df_abundance.sample_name == self.li_new_sample_name[i]) & (df_abundance.phenotype == self.li_phenotype[j])
-                    df_new = df_abundance[condition].sort_values(by=['abundance'], ascending=False).head(5)
+                    df_new = df_abundance[condition].sort_values(by=['abundance', 'abundance_mean'], ascending=False).head(5)
                     self.df_beneficial = pd.concat([self.df_beneficial,df_new])
 
             self.df_beneficial = self.df_beneficial.set_index(keys=['sample_name'], inplace=False, drop=True)           
@@ -252,7 +252,7 @@ class VaginalDisease:
                 for j in range(len(self.li_phenotype)):
 
                     condition = (df_abundance.sample_name == self.li_new_sample_name[i]) & (df_abundance.phenotype == self.li_phenotype[j])
-                    df_new = df_abundance[condition].sort_values(by=['abundance'], ascending=False).head(5)
+                    df_new = df_abundance[condition].sort_values(by=['abundance', 'abundance_mean'], ascending=False).head(5)
                     self.df_harmful = pd.concat([self.df_harmful,df_new])
 
             self.df_harmful = self.df_harmful.set_index(keys=['sample_name'], inplace=False, drop=True)           
