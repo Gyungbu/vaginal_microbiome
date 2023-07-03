@@ -1,5 +1,5 @@
 ##<Usage: python Script.py {path_exp}>
-### ex) python vaginal_percentile_rank_new.py "/home/kbkim/vaginal_microbiome/input/experiment_result_abundance.csv"
+### ex) python vaginal_percentile_rank.py "/home/kbkim/vaginal_microbiome/input/experiment_result_abundance.csv"
 
 import os
 import pandas as pd
